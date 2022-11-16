@@ -29,46 +29,36 @@ def load_model(model_name):
     # download checkpoint from hf
     checkpoint = hf_hub_download(repo_id="eminorhan/"+model_name, filename=model_name+".pth")
 
-    if alg == "dino":
-        model = build_dino(arch, patch_size)
-        load_dino(model, checkpoint, "teacher", arch, patch_size)
-
-    print(model)
+    if alg == "dino" or alg == "mugs":
+        model = build_dino_mugs(arch, patch_size)
+        load_dino_mugs(model, checkpoint, "teacher")
+    elif alg == "mae":
+        model = build_mae(arch, patch_size)
+        load_mae(model, checkpoint)
 
     return model
 
-def load_dino(model, pretrained_weights, checkpoint_key, model_name, patch_size):
+def load_dino_mugs(model, pretrained_weights, checkpoint_key):
     if os.path.isfile(pretrained_weights):
         state_dict = torch.load(pretrained_weights, map_location="cpu")
         if checkpoint_key is not None and checkpoint_key in state_dict:
             print(f"Take key {checkpoint_key} in provided checkpoint dict")
             state_dict = state_dict[checkpoint_key]
+
         # remove `module.` prefix
         state_dict = {k.replace("module.", ""): v for k, v in state_dict.items()}
         # remove `backbone.` prefix induced by multicrop wrapper
         state_dict = {k.replace("backbone.", ""): v for k, v in state_dict.items()}
+        # remove `encoder.` prefix induced by MAE
+        state_dict = {k.replace("encoder.", ""): v for k, v in state_dict.items()}
+
         msg = model.load_state_dict(state_dict, strict=False)
         print('Pretrained weights found at {} and loaded with msg: {}'.format(pretrained_weights, msg))
     else:
-        print("Please use the `--pretrained_weights` argument to indicate the path of the checkpoint to evaluate.")
-        url = None
-        if model_name == "vit_small" and patch_size == 16:
-            url = "dino_deitsmall16_pretrain/dino_deitsmall16_pretrain.pth"
-        elif model_name == "vit_small" and patch_size == 8:
-            url = "dino_deitsmall8_pretrain/dino_deitsmall8_pretrain.pth"
-        elif model_name == "vit_base" and patch_size == 16:
-            url = "dino_vitbase16_pretrain/dino_vitbase16_pretrain.pth"
-        elif model_name == "vit_base" and patch_size == 8:
-            url = "dino_vitbase8_pretrain/dino_vitbase8_pretrain.pth"
-        if url is not None:
-            print("Since no pretrained weights have been provided, we load the reference pretrained DINO weights.")
-            state_dict = torch.hub.load_state_dict_from_url(url="https://dl.fbaipublicfiles.com/dino/" + url)
-            model.load_state_dict(state_dict, strict=True)
-        else:
-            print("There is no reference weights available for this model => We use random weights.")
+        print("There is no reference weights available for this model => We use random weights.")
 
-def build_dino(arch, patch_size):
-    import vision_transformer_dino as vits
+def build_dino_mugs(arch, patch_size):
+    import vision_transformer_dino_mugs as vits
     from torchvision import models as torchvision_models
 
     # if the network is a Vision Transformer (i.e. vit_tiny, vit_small, vit_base, vit_large)
@@ -82,8 +72,53 @@ def build_dino(arch, patch_size):
         print(f"Unknown architecture: {arch}")
         sys.exit(1)
 
-    device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
-    model.to(device)
-    model.eval()
+    return model
+
+def build_mae(arch, patch_size):
+    import vision_transformer_mae as vits
+    full_model_name = arch + "_patch" + str(patch_size)
+    model = vits.__dict__[full_model_name](num_classes=0, global_pool=False)
 
     return model
+
+def load_mae(model, pretrained_weights):
+    if os.path.isfile(pretrained_weights):    
+        checkpoint = torch.load(pretrained_weights, map_location='cpu')
+        checkpoint_model = checkpoint['model']
+
+        # interpolate position embedding
+        interpolate_pos_embed(model, checkpoint_model)
+
+        # load pre-trained model
+        msg = model.load_state_dict(checkpoint_model, strict=False)
+
+        # make sure head is removed
+        print('Pretrained weights found at {} and loaded with msg: {}'.format(pretrained_weights, msg))
+    else:
+        print("There is no reference weights available for this model => We use random weights.")
+
+# ---------------------------------------------------------------------------------------------------------
+# Interpolate position embeddings for high-resolution. Reference: https://github.com/facebookresearch/deit
+# ---------------------------------------------------------------------------------------------------------
+def interpolate_pos_embed(model, checkpoint_model):
+    if 'pos_embed' in checkpoint_model:
+        pos_embed_checkpoint = checkpoint_model['pos_embed']
+        embedding_size = pos_embed_checkpoint.shape[-1]
+        num_patches = model.patch_embed.num_patches
+        num_extra_tokens = model.pos_embed.shape[-2] - num_patches
+        # height (== width) for the checkpoint position embedding
+        orig_size = int((pos_embed_checkpoint.shape[-2] - num_extra_tokens) ** 0.5)
+        # height (== width) for the new position embedding
+        new_size = int(num_patches ** 0.5)
+        # class_token and dist_token are kept unchanged
+        if orig_size != new_size:
+            print("Position interpolate from %dx%d to %dx%d" % (orig_size, orig_size, new_size, new_size))
+            extra_tokens = pos_embed_checkpoint[:, :num_extra_tokens]
+            # only the position tokens are interpolated
+            pos_tokens = pos_embed_checkpoint[:, num_extra_tokens:]
+            pos_tokens = pos_tokens.reshape(-1, orig_size, orig_size, embedding_size).permute(0, 3, 1, 2)
+            pos_tokens = torch.nn.functional.interpolate(
+                pos_tokens, size=(new_size, new_size), mode='bicubic', align_corners=False)
+            pos_tokens = pos_tokens.permute(0, 2, 3, 1).flatten(1, 2)
+            new_pos_embed = torch.cat((extra_tokens, pos_tokens), dim=1)
+            checkpoint_model['pos_embed'] = new_pos_embed
