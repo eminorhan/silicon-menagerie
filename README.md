@@ -1,6 +1,6 @@
 ## Wilde beasts of silicon
 
-> *... come ye, assemble all the beasts of the field, come to devour* &mdash;Jeremiah 12:9
+> *... come ye, assemble all the beasts of the field, come to devour ...* &ndash;Jeremiah 12:9
 
 This is a stand-alone repository to facilitate the use of all models I have trained on SAYCam (and more!). It is still in progress. More models and further functionalities will be forthcoming shortly. The models are all hosted on [Huggingface](https://huggingface.co/eminorhan), which, to my not inconsiderable astonishment, seems to offer free unlimited storage for models and datasets (thanks Huggingface!).
 
