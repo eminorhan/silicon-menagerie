@@ -9,7 +9,7 @@ This is a stand-alone repository to facilitate the use of all models I have trai
 Model names are specified in the format `x_y_z`, where `x` is the SSL algorithm used to train the model, `y` is the data used for training the model, and `z` is the model architecture:
 
 * `x` can be one of `dino`, `mugs`, or `mae`
-* `y` can be one of `say`, `s`, `a`, `y`, `imagenet_100`, `imagenet_10`, `imagenet_3`, or `imagenet_1`
+* `y` can be one of `say`, `s`, `a`, `y`, `imagenet100`, `imagenet10`, `imagenet3`, or `imagenet1`
 * `z` can be one of `resnext50`, `vitb14`, `vitl16`, `vitb16`, `vits16` 
 
 Please note that not all possible combinations are available at this time (see [here](https://huggingface.co/eminorhan) for a list of all available models). You will get an error if you try to load an unavailable model. 
@@ -23,6 +23,28 @@ model = load_model('dino_s_vitb14')
 ```
 
 This will download the corresponding pretrained checkpoint, store it in cache, build the right model architecture, and load the pretrained weights onto the model, all in one go! When you load a model, you will get a warning message that says something like `_IncompatibleKeys(missing_keys=[], unexpected_keys=...)`. That's OK, don't panic! Life is like that sometimes. This is because we're not loading the projection head used during DINO or Mugs pretraining, or the decoder used during MAE pretraining. We're only interested in the encoder backbone.
+
+#### Visualizing attention heads
+I also include here some bare bones functionality to visualize the attention heads of the transformer models. All you need to do is something along the lines of:
+```python
+import torch
+from utils load_model, preprocess_image, visualize_attentions
+
+model = load_model('dino_imagenet100_vitb14')
+
+img = preprocess_image(img_path="imgs/img_1.jpg", img_size=1400)
+with torch.no_grad():
+    visualize_attentions(model, img, patch_size=14)
+```
+The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test.py) contains a more concrete usage example. This will produce an image like the following (with the original image on the left and attention maps for all heads in a row): 
+
+![](dino_s_vitb14_img_1.jpeg)
+
+### What you need
+* A reasonably recent installation of PyTorch and torchvision (I have `pytorch==1.10.2` and `torchvision==0.11.3`). You do not need a GPU to load and use the models. If you're only doing inference and you're not feeding the model very large batches of input, you should be able to easily fit even the largest models here (ViT-L/16) on a single V100 GPU with 32GB memory.
+* The `huggingface_hub` library to download the models from the Huggingface Hub (I have `huggingface-hub==0.10.0`).
+* To use the MAE models, you will need the `timm` library (I have `timm=0.3.2`).
+* For the attention visualizations, you will also need the PIL library (I have `pillow==8.4.0`).
 
 ### Generative image models
 

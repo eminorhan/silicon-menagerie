@@ -12,7 +12,7 @@ def load_model(model_name):
 
     # checks
     assert alg in ["dino", "mugs", "mae"], "Unrecognized algorithm!"
-    assert data in ["say", "s", "a", "y", "imagenet_100", "imagenet_10", "imagenet_3", "imagenet_1"], "Unrecognized data!"
+    assert data in ["say", "s", "a", "y", "imagenet100", "imagenet10", "imagenet3", "imagenet1"], "Unrecognized data!"
     assert model_spec in ["resnext50", "vitb14", "vitl16", "vitb16", "vits16"], "Unrecognized architecture!"
 
     if model_spec == "resnext50":
@@ -154,7 +154,7 @@ def preprocess_image(image_path, image_size):
 
     return img
 
-def visualize_attentions(model, img, patch_size, save_name, device, threshold=None):
+def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.device("cpu"), threshold=None):
     from torch.nn.functional import interpolate
     from torchvision.utils import save_image
 
@@ -197,4 +197,4 @@ def visualize_attentions(model, img, patch_size, save_name, device, threshold=No
     print('Display tensor shape:', display_tensor.shape)
 
     # TODO: handle the layout better
-    save_image(display_tensor, save_name + ".jpeg", nrow=13, padding=1, normalize=True, scale_each=True)
+    save_image(display_tensor, save_name + ".jpeg", nrow=13, padding=0, normalize=True, scale_each=True)
