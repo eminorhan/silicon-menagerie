@@ -29,7 +29,7 @@ This will download the corresponding pretrained checkpoint, store it in cache, b
 I also include here some bare bones functionality to visualize the attention heads of the transformer models. All you need to do is something along the lines of:
 ```python
 import torch
-from utils load_model, preprocess_image, visualize_attentions
+from utils import load_model, preprocess_image, visualize_attentions
 
 model = load_model('dino_say_vitb14')
 
