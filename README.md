@@ -23,9 +23,9 @@ from utils import load_model
 model = load_model('dino_say_vitb14')
 ```
 
-This will download the corresponding pretrained checkpoint, store it in cache, build the right model architecture, and load the pretrained weights onto the model, all in one go! When you load a model, you will get a warning message that says something like `_IncompatibleKeys(missing_keys=[], unexpected_keys=...)`. That's OK, don't panic! Life is like that sometimes. This is because we're not loading the projection head used during DINO or Mugs pretraining, or the decoder used during MAE pretraining. We're only interested in the encoder backbone.
+This will download the corresponding pretrained checkpoint, store it in cache, build the right model architecture, and load the pretrained weights onto the model, all in one go! When you load a model, you will get a warning message that says something like `_IncompatibleKeys(missing_keys=[], unexpected_keys=...)`. That's OK, don't panic! Life is like that sometimes. This is because we're not loading the projection head used during DINO or Mugs pretraining, or the decoder model used during MAE pretraining. We're only interested in the encoder backbone.
 
-#### Visualizing attention heads
+#### Visualizing the attention heads
 I also include here some bare bones functionality to visualize the attention heads of the transformer models. All you need to do is something along the lines of:
 ```python
 import torch
@@ -39,12 +39,12 @@ with torch.no_grad():
 ```
 The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test.py) contains a more fleshed out usage example. This will produce images like the following (with the original image on the top left in each case): 
 
-`dino_say_vitb14`:
+**`dino_say_vitb14`:**
 ![](dino_say_vitb14_img_0.jpeg)
 ![](dino_say_vitb14_img_1.jpeg)
 ![](dino_say_vitb14_img_2.jpeg)
 
-`dino_imagenet100_vitb14`:
+**`dino_imagenet100_vitb14`:**
 ![](dino_imagenet100_vitb14_img_0.jpeg)
 ![](dino_imagenet100_vitb14_img_1.jpeg)
 ![](dino_imagenet100_vitb14_img_2.jpeg)
