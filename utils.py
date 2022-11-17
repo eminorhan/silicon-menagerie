@@ -183,10 +183,10 @@ def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.
             th_attn[head] = th_attn[head][idx2[head]]
         th_attn = th_attn.reshape(nh, w_featmap, h_featmap).float()
         # interpolate
-        th_attn = interpolate(th_attn.unsqueeze(0), scale_factor=patch_size, mode="nearest")[0].cpu().numpy()
-
-    attentions = attentions.reshape(nh, w_featmap, h_featmap)
-    attentions = interpolate(attentions.unsqueeze(0), scale_factor=patch_size, mode="nearest")[0].cpu().numpy()
+        attentions = interpolate(th_attn.unsqueeze(0), scale_factor=patch_size, mode="nearest")[0].cpu().numpy()
+    else: 
+        attentions = attentions.reshape(nh, w_featmap, h_featmap)
+        attentions = interpolate(attentions.unsqueeze(0), scale_factor=patch_size, mode="nearest")[0].cpu().numpy()
     
     new_attentions = torch.zeros(nh, 3, w, h)
     new_attentions[:, 0, :, :] = torch.from_numpy(attentions)

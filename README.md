@@ -37,7 +37,7 @@ img = preprocess_image(img_path="imgs/img_0.jpg", img_size=1400)
 with torch.no_grad():
     visualize_attentions(model, img, patch_size=14)
 ```
-The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test.py) contains a more fleshed out usage example. This will produce images like the following (with the original image on the top left in each case).
+The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test.py) contains a more fleshed out usage example. This will produce images like the following (with the original image on the top left and the attention maps for each head after that).
 
 * **`dino_say_vitb14`:**
 ![](atts/dino_say_vitb14_img_0.jpeg)
