@@ -91,8 +91,6 @@ def load_mae(model, pretrained_weights):
 
         # load pre-trained model
         msg = model.load_state_dict(checkpoint_model, strict=False)
-
-        # make sure head is removed
         print('Pretrained weights found at {} and loaded with msg: {}'.format(pretrained_weights, msg))
     else:
         print("There is no reference weights available for this model => We use random weights.")
@@ -132,7 +130,7 @@ def preprocess_image(image_path, image_size):
     if image_path is None:
         import requests
         from io import BytesIO
-        # user has not specified any image - we use an own image from the DINO repo
+        # user has not specified any image - we use an image from the DINO repo
         print("Since no image path have been provided, we take the first image in our paper.")
         response = requests.get("https://dl.fbaipublicfiles.com/dino/img.png")
         img = Image.open(BytesIO(response.content))
@@ -173,7 +171,7 @@ def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.
     attentions = attentions[0, :, 0, 1:].reshape(nh, -1)
 
     if threshold is not None:
-        # we keep only a certain percentage of the mass
+        # thresholded attention maps: we keep only a certain percentage of the mass
         val, idx = torch.sort(attentions)
         val /= torch.sum(val, dim=1, keepdim=True)
         cumval = torch.cumsum(val, dim=1)
@@ -197,4 +195,4 @@ def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.
     print('Display tensor shape:', display_tensor.shape)
 
     # TODO: handle the layout better
-    save_image(display_tensor, save_name + ".jpeg", nrow=4, padding=0, normalize=True, scale_each=True)
+    save_image(display_tensor, save_name, nrow=4, padding=0, normalize=True, scale_each=True)
