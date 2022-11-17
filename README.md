@@ -37,14 +37,14 @@ img = preprocess_image(img_path="imgs/img_0.jpg", img_size=1400)
 with torch.no_grad():
     visualize_attentions(model, img, patch_size=14)
 ```
-The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test.py) contains a more fleshed out usage example. This will produce images like the following (with the original image on the top left in each case): 
+The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test.py) contains a more fleshed out usage example. This will produce images like the following (with the original image on the top left in each case).
 
-**`dino_say_vitb14`:**
+* **`dino_say_vitb14`:**
 ![](dino_say_vitb14_img_0.jpeg)
 ![](dino_say_vitb14_img_1.jpeg)
 ![](dino_say_vitb14_img_2.jpeg)
 
-**`dino_imagenet100_vitb14`:**
+* **`dino_imagenet100_vitb14`:**
 ![](dino_imagenet100_vitb14_img_0.jpeg)
 ![](dino_imagenet100_vitb14_img_1.jpeg)
 ![](dino_imagenet100_vitb14_img_2.jpeg)
