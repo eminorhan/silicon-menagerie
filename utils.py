@@ -197,4 +197,4 @@ def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.
     print('Display tensor shape:', display_tensor.shape)
 
     # TODO: handle the layout better
-    save_image(display_tensor, save_name + ".jpeg", nrow=13, padding=0, normalize=True, scale_each=True)
+    save_image(display_tensor, save_name + ".jpeg", nrow=4, padding=0, normalize=True, scale_each=True)

@@ -19,7 +19,7 @@ Loading a pretrained model is then as easy as:
 ```python
 from utils import load_model
 
-model = load_model('dino_s_vitb14')
+model = load_model('dino_say_vitb14')
 ```
 
 This will download the corresponding pretrained checkpoint, store it in cache, build the right model architecture, and load the pretrained weights onto the model, all in one go! When you load a model, you will get a warning message that says something like `_IncompatibleKeys(missing_keys=[], unexpected_keys=...)`. That's OK, don't panic! Life is like that sometimes. This is because we're not loading the projection head used during DINO or Mugs pretraining, or the decoder used during MAE pretraining. We're only interested in the encoder backbone.
@@ -30,15 +30,23 @@ I also include here some bare bones functionality to visualize the attention hea
 import torch
 from utils load_model, preprocess_image, visualize_attentions
 
-model = load_model('dino_imagenet100_vitb14')
+model = load_model('dino_say_vitb14')
 
-img = preprocess_image(img_path="imgs/img_1.jpg", img_size=1400)
+img = preprocess_image(img_path="imgs/img_0.jpg", img_size=1400)
 with torch.no_grad():
     visualize_attentions(model, img, patch_size=14)
 ```
-The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test.py) contains a more concrete usage example. This will produce an image like the following (with the original image on the left and attention maps for all heads in a row): 
+The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test.py) contains a more fleshed out usage example. This will produce images like the following (with the original image on the top left in each case): 
 
-![](dino_s_vitb14_img_1.jpeg)
+`dino_say_vitb14`:
+![](dino_say_vitb14_img_0.jpeg)
+![](dino_say_vitb14_img_1.jpeg)
+![](dino_say_vitb14_img_2.jpeg)
+
+`dino_imagenet100_vitb14`:
+![](dino_imagenet100_vitb14_img_0.jpeg)
+![](dino_imagenet100_vitb14_img_1.jpeg)
+![](dino_imagenet100_vitb14_img_2.jpeg)
 
 ### What you need
 * A reasonably recent installation of PyTorch and torchvision (I have `pytorch==1.10.2` and `torchvision==0.11.3`). You do not need a GPU to load and use the models. If you're only doing inference and you're not feeding the model very large batches of input, you should be able to easily fit even the largest models here (ViT-L/16) on a single V100 GPU with 32GB memory.
