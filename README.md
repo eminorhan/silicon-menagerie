@@ -40,14 +40,14 @@ with torch.no_grad():
 The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test.py) contains a more fleshed out usage example. This will produce images like the following (with the original image on the top left in each case).
 
 * **`dino_say_vitb14`:**
-![](dino_say_vitb14_img_0.jpeg)
-![](dino_say_vitb14_img_1.jpeg)
-![](dino_say_vitb14_img_2.jpeg)
+![](atts/dino_say_vitb14_img_0.jpeg)
+![](atts/dino_say_vitb14_img_1.jpeg)
+![](atts/dino_say_vitb14_img_2.jpeg)
 
 * **`dino_imagenet100_vitb14`:**
-![](dino_imagenet100_vitb14_img_0.jpeg)
-![](dino_imagenet100_vitb14_img_1.jpeg)
-![](dino_imagenet100_vitb14_img_2.jpeg)
+![](atts/dino_imagenet100_vitb14_img_0.jpeg)
+![](atts/dino_imagenet100_vitb14_img_1.jpeg)
+![](atts/dino_imagenet100_vitb14_img_2.jpeg)
 
 ### What you need
 * A reasonably recent version of PyTorch and torchvision (I have `pytorch==1.10.2` and `torchvision==0.11.3`). 
