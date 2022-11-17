@@ -6,8 +6,8 @@ This is a stand-alone repository to facilitate the use of all models I have trai
 
 ### Image embedding models
 
-#### Loading the models 
-Model names are specified in the format `x_y_z`, where `x` is the SSL algorithm used to train the model, `y` is the data used for training the model, and `z` is the model architecture:
+#### Loading the models
+Model names are specified in the format `x_y_z`, where `x` is the self-supervised learning (SSL) algorithm used to train the model, `y` is the data used for training the model, and `z` is the model architecture:
 
 * `x` can be one of `dino`, `mugs`, or `mae`
 * `y` can be one of `say`, `s`, `a`, `y`, `imagenet100`, `imagenet10`, `imagenet3`, or `imagenet1`
@@ -61,8 +61,8 @@ The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/
 
 These are generative models that can be used to generate images. For these models, we first learn a discrete codebook of size 8192 with a [VQ-GAN](https://github.com/CompVis/taming-transformers) model and then encode the video frames as 32x32 integers from this codebook. These discretized and spatially downsampled frames are then fed into a GPT model to learn a prior over the frames. The two parts of the model are shared separately below. The `encoder-decoder` part can be used to encode images with the discrete codebook, as well as decode images (to 256x256 pixels) given a discrete latent representation. The `GPT` part can be used to generate (or sample) new discrete latent representations.
 
-TBD
+**TBD**
 
 ### Generative video models
 
-TBD
+**TBD**
