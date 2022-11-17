@@ -6,6 +6,7 @@ This is a stand-alone repository to facilitate the use of all models I have trai
 
 ### Image embedding models
 
+#### Loading the models 
 Model names are specified in the format `x_y_z`, where `x` is the SSL algorithm used to train the model, `y` is the data used for training the model, and `z` is the model architecture:
 
 * `x` can be one of `dino`, `mugs`, or `mae`
@@ -49,7 +50,9 @@ The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/
 ![](dino_imagenet100_vitb14_img_2.jpeg)
 
 ### What you need
-* A reasonably recent installation of PyTorch and torchvision (I have `pytorch==1.10.2` and `torchvision==0.11.3`). You do not need a GPU to load and use the models. If you're only doing inference and you're not feeding the model very large batches of input, you should be able to easily fit even the largest models here (ViT-L/16) on a single V100 GPU with 32GB memory.
+* A reasonably recent version of PyTorch and torchvision (I have `pytorch==1.10.2` and `torchvision==0.11.3`). 
+* You do not need a GPU to load and use the models. 
+* If you're only doing inference and you're not feeding the model very large batches of input, you should be able to easily fit even the largest models here (ViT-L/16) on a single V100 GPU with 32GB memory.
 * The `huggingface_hub` library to download the models from the Huggingface Hub (I have `huggingface-hub==0.10.0`).
 * To use the MAE models, you will need the `timm` library (I have `timm=0.3.2`).
 * For the attention visualizations, you will also need the PIL library (I have `pillow==8.4.0`).
