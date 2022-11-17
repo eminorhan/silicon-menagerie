@@ -97,10 +97,11 @@ def load_mae(model, pretrained_weights):
     else:
         print("There is no reference weights available for this model => We use random weights.")
 
-# ---------------------------------------------------------------------------------------------------------
-# Interpolate position embeddings for high-resolution. Reference: https://github.com/facebookresearch/deit
-# ---------------------------------------------------------------------------------------------------------
 def interpolate_pos_embed(model, checkpoint_model):
+    '''
+    Interpolate position embeddings for high-resolution. 
+    Reference: https://github.com/facebookresearch/deit
+    '''
     if 'pos_embed' in checkpoint_model:
         pos_embed_checkpoint = checkpoint_model['pos_embed']
         embedding_size = pos_embed_checkpoint.shape[-1]
@@ -122,3 +123,78 @@ def interpolate_pos_embed(model, checkpoint_model):
             pos_tokens = pos_tokens.permute(0, 2, 3, 1).flatten(1, 2)
             new_pos_embed = torch.cat((extra_tokens, pos_tokens), dim=1)
             checkpoint_model['pos_embed'] = new_pos_embed
+
+def preprocess_image(image_path, image_size):
+    from PIL import Image
+    from torchvision import transforms as pth_transforms
+
+    # open image
+    if image_path is None:
+        import requests
+        from io import BytesIO
+        # user has not specified any image - we use an own image from the DINO repo
+        print("Since no image path have been provided, we take the first image in our paper.")
+        response = requests.get("https://dl.fbaipublicfiles.com/dino/img.png")
+        img = Image.open(BytesIO(response.content))
+        img = img.convert('RGB')
+    elif os.path.isfile(image_path):
+        with open(image_path, 'rb') as f:
+            img = Image.open(f)
+            img = img.convert('RGB')
+    else:
+        print(f"Provided image path {image_path} is non valid.")
+        sys.exit(1)
+
+    transform = pth_transforms.Compose([
+        pth_transforms.Resize(image_size),
+        pth_transforms.ToTensor(),
+        pth_transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
+    ])
+    img = transform(img)
+
+    return img
+
+def visualize_attentions(model, img, patch_size, save_name, device, threshold=None):
+    from torch.nn.functional import interpolate
+    from torchvision.utils import save_image
+
+    # make the image divisible by the patch size
+    w, h = img.shape[1] - img.shape[1] % patch_size, img.shape[2] - img.shape[2] % patch_size
+    img = img[:, :w, :h].unsqueeze(0)
+
+    w_featmap = img.shape[-2] // patch_size
+    h_featmap = img.shape[-1] // patch_size
+
+    attentions = model.get_last_selfattention(img.to(device))
+
+    nh = attentions.shape[1]  # number of heads
+
+    # we keep only the output patch attention
+    attentions = attentions[0, :, 0, 1:].reshape(nh, -1)
+
+    if threshold is not None:
+        # we keep only a certain percentage of the mass
+        val, idx = torch.sort(attentions)
+        val /= torch.sum(val, dim=1, keepdim=True)
+        cumval = torch.cumsum(val, dim=1)
+        th_attn = cumval > (1 - threshold)
+        idx2 = torch.argsort(idx)
+        for head in range(nh):
+            th_attn[head] = th_attn[head][idx2[head]]
+        th_attn = th_attn.reshape(nh, w_featmap, h_featmap).float()
+        # interpolate
+        th_attn = interpolate(th_attn.unsqueeze(0), scale_factor=patch_size, mode="nearest")[0].cpu().numpy()
+
+    attentions = attentions.reshape(nh, w_featmap, h_featmap)
+    attentions = interpolate(attentions.unsqueeze(0), scale_factor=patch_size, mode="nearest")[0].cpu().numpy()
+    
+    new_attentions = torch.zeros(nh, 3, w, h)
+    new_attentions[:, 0, :, :] = torch.from_numpy(attentions)
+    new_attentions[:, 1, :, :] = torch.from_numpy(attentions)
+    new_attentions[:, 2, :, :] = torch.from_numpy(attentions)
+
+    display_tensor = torch.cat((img, new_attentions))
+    print('Display tensor shape:', display_tensor.shape)
+
+    # TODO: handle the layout better
+    save_image(display_tensor, save_name + ".jpeg", nrow=13, padding=1, normalize=True, scale_each=True)
