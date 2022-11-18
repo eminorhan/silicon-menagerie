@@ -13,7 +13,7 @@ Model names are specified in the format `x_y_z`, where `x` is the self-supervise
 * `y` can be one of `say`, `s`, `a`, `y`, `imagenet100`, `imagenet10`, `imagenet3`, or `imagenet1`
 * `z` can be one of `resnext50`, `vitb14`, `vitl16`, `vitb16`, `vits16` 
 
-Please note that not all possible combinations are available at this time (see [here](https://huggingface.co/eminorhan) for a list of all available models). You will get an error if you try to load an unavailable model. 
+DINO models were trained with code from [this repository](https://github.com/eminorhan/dino), Mugs models were trained with code from [this repository](https://github.com/eminorhan/mugs), and the MAE models were trained with code from [this repository](https://github.com/eminorhan/mae). Please note that not all possible combinations are available at this time (see [here](https://huggingface.co/eminorhan) for a list of all available models). You will get an error if you try to load an unavailable model. 
 
 Loading a pretrained model is then as easy as:
 
@@ -54,7 +54,6 @@ The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/
 * You do not need a GPU to load and use the models. 
 * If you're only doing inference and you're not feeding the model very large batches of input, you should be able to easily fit even the largest models here (ViT-L/16) on a single V100 GPU with 32GB memory.
 * The `huggingface_hub` library to download the models from the Huggingface Hub (I have `huggingface-hub==0.10.0`).
-* To use the MAE models, you will need the `timm` library (I have `timm=0.3.2`).
 * For the attention visualizations, you will also need the PIL library (I have `pillow==8.4.0`).
 
 ### Generative image models
