@@ -328,8 +328,8 @@ class PatchEmbed(nn.Module):
 
     def forward(self, x):
         B, C, H, W = x.shape
-        assert H == self.img_size[0], f"Input image height ({H}) doesn't match model ({self.img_size[0]})."
-        assert W == self.img_size[1], f"Input image width ({W}) doesn't match model ({self.img_size[1]})."
+        # assert H == self.img_size[0], f"Input image height ({H}) doesn't match model ({self.img_size[0]})."
+        # assert W == self.img_size[1], f"Input image width ({W}) doesn't match model ({self.img_size[1]})."
         x = self.proj(x)
         if self.flatten:
             x = x.flatten(2).transpose(1, 2)  # BCHW -> BNC
@@ -595,7 +595,31 @@ class VisionTransformerTimm(nn.Module):
             self.global_pool = global_pool
         self.head = nn.Linear(self.embed_dim, num_classes) if num_classes > 0 else nn.Identity()
 
+    def interpolate_pos_encoding(self, x, w, h):
+        npatch = x.shape[1] - 1
+        N = self.pos_embed.shape[1] - 1
+        if npatch == N and w == h:
+            return self.pos_embed
+        class_pos_embed = self.pos_embed[:, 0]
+        patch_pos_embed = self.pos_embed[:, 1:]
+        dim = x.shape[-1]
+        w0 = w // self.patch_embed.patch_size
+        h0 = h // self.patch_embed.patch_size
+        # we add a small number to avoid floating point error in the interpolation
+        # see discussion at https://github.com/facebookresearch/dino/issues/8
+        w0, h0 = w0 + 0.1, h0 + 0.1
+        patch_pos_embed = nn.functional.interpolate(
+            patch_pos_embed.reshape(1, int(math.sqrt(N)), int(math.sqrt(N)), dim).permute(0, 3, 1, 2),
+            scale_factor=(w0 / math.sqrt(N), h0 / math.sqrt(N)),
+            mode='bicubic',
+        )
+        assert int(w0) == patch_pos_embed.shape[-2] and int(h0) == patch_pos_embed.shape[-1]
+        patch_pos_embed = patch_pos_embed.permute(0, 2, 3, 1).view(1, -1, dim)
+        return torch.cat((class_pos_embed.unsqueeze(0), patch_pos_embed), dim=1)
+
     def _pos_embed(self, x):
+        _, _, w, h = x.shape
+
         if self.no_embed_class:
             # deit-3, updated JAX (big vision)
             # position embedding does not overlap with class token, add then concat
@@ -607,7 +631,9 @@ class VisionTransformerTimm(nn.Module):
             # pos_embed has entry for class token, concat then add
             if self.cls_token is not None:
                 x = torch.cat((self.cls_token.expand(x.shape[0], -1, -1), x), dim=1)
-            x = x + self.pos_embed
+            # add positional encoding to each token (interpolate_pos_encoding enables superresolution)
+            x = x + self.interpolate_pos_encoding(x, w, h)
+
         return self.pos_drop(x)
 
     def forward_features(self, x):
@@ -773,12 +799,14 @@ class VisionTransformer(VisionTransformerTimm):
         return outcome
 
     def get_last_selfattention(self, x):
-        B = x.shape[0]
+        B, nc, w, h = x.shape
         x = self.patch_embed(x)
 
         cls_tokens = self.cls_token.expand(B, -1, -1)  # stole cls_tokens impl from Phil Wang, thanks
         x = torch.cat((cls_tokens, x), dim=1)
-        x = x + self.pos_embed
+
+        # interpolate_pos_encoding enables superresolution
+        x = x + self.interpolate_pos_encoding(x, w, h)
         x = self.pos_drop(x)
 
         for i, blk in enumerate(self.blocks):
