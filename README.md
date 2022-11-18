@@ -39,12 +39,12 @@ with torch.no_grad():
 ```
 The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test.py) contains a more fleshed out usage example. This will produce images like the following (with the original image on the top left and the attention maps for each head after that).
 
-* **`dino_say_vitb14`:**
+**`dino_say_vitb14`:**
 ![](atts/dino_say_vitb14_img_0.jpeg)
 ![](atts/dino_say_vitb14_img_1.jpeg)
 ![](atts/dino_say_vitb14_img_2.jpeg)
 
-* **`dino_imagenet100_vitb14`:**
+**`dino_imagenet100_vitb14`:**
 ![](atts/dino_imagenet100_vitb14_img_0.jpeg)
 ![](atts/dino_imagenet100_vitb14_img_1.jpeg)
 ![](atts/dino_imagenet100_vitb14_img_2.jpeg)
