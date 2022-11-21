@@ -799,10 +799,10 @@ class VisionTransformer(VisionTransformerTimm):
         return outcome
 
     def get_last_selfattention(self, x):
-        B, nc, w, h = x.shape
+        B, _, w, h = x.shape
         x = self.patch_embed(x)
 
-        cls_tokens = self.cls_token.expand(B, -1, -1)  # stole cls_tokens impl from Phil Wang, thanks
+        cls_tokens = self.cls_token.expand(B, -1, -1)  
         x = torch.cat((cls_tokens, x), dim=1)
 
         # interpolate_pos_encoding enables superresolution
@@ -815,6 +815,25 @@ class VisionTransformer(VisionTransformerTimm):
             else:
                 # return attention of the last block
                 return blk(x, return_attention=True)
+
+    def get_intermediate_layers(self, x, n=1):
+        B, _, w, h = x.shape
+        x = self.patch_embed(x)
+
+        cls_tokens = self.cls_token.expand(B, -1, -1)  
+        x = torch.cat((cls_tokens, x), dim=1)
+
+        # interpolate_pos_encoding enables superresolution
+        x = x + self.interpolate_pos_encoding(x, w, h)
+        x = self.pos_drop(x)
+        
+        # we return the output tokens from the `n` last blocks
+        output = []
+        for i, blk in enumerate(self.blocks):
+            x = blk(x)
+            if len(self.blocks) - i <= n:
+                output.append(self.norm(x))
+        return output
 
 
 def vit_small_patch16(**kwargs):
