@@ -155,8 +155,20 @@ def preprocess_image(image_path, image_size):
 def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.device("cpu"), threshold=None):
     from torch.nn.functional import interpolate
     from torchvision.utils import save_image
+    import random, colorsys
+
+    def random_colors(N, bright=True):
+        """
+        Generate random colors.
+        """
+        brightness = 1.0 if bright else 0.7
+        hsv = [(i / N, 1, brightness) for i in range(N)]
+        colors = list(map(lambda c: colorsys.hsv_to_rgb(*c), hsv))
+        random.shuffle(colors)
+        return colors
 
     # make the image divisible by the patch size
+    print(img.shape)
     w, h = img.shape[1] - img.shape[1] % patch_size, img.shape[2] - img.shape[2] % patch_size
     img = img[:, :w, :h].unsqueeze(0)
 
@@ -167,7 +179,7 @@ def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.
 
     nh = attentions.shape[1]  # number of heads
 
-    # we keep only the output patch attention
+    # we keep only the output patch attention (cls token)
     attentions = attentions[0, :, 0, 1:].reshape(nh, -1)
 
     if threshold is not None:
@@ -186,13 +198,28 @@ def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.
         attentions = attentions.reshape(nh, w_featmap, h_featmap)
         attentions = interpolate(attentions.unsqueeze(0), scale_factor=patch_size, mode="nearest")[0].cpu().numpy()
     
+    abs_attentions = torch.from_numpy(abs(attentions))
+    colors = random_colors(nh, bright=True)
     new_attentions = torch.zeros(nh, 3, w, h)
-    new_attentions[:, 0, :, :] = torch.from_numpy(attentions)
-    new_attentions[:, 1, :, :] = torch.from_numpy(attentions)
-    new_attentions[:, 2, :, :] = torch.from_numpy(attentions)
+    for i in range(nh):
+        new_attentions[i, 0, :, :] = colors[i][0] * torch.from_numpy(attentions[i, :, :])
+        new_attentions[i, 1, :, :] = colors[i][1] * torch.from_numpy(attentions[i, :, :])
+        new_attentions[i, 2, :, :] = colors[i][2] * torch.from_numpy(attentions[i, :, :])
+
+    combined_map = torch.zeros(1, 3, w, h)
+    for i in range(w):
+        for j in range(h):
+            max_ind  = torch.argmax(abs_attentions[:, i, j])
+            combined_map[0, 0, i, j] = new_attentions[max_ind, 0, i, j]
+            combined_map[0, 1, i, j] = new_attentions[max_ind, 1, i, j]
+            combined_map[0, 2, i, j] = new_attentions[max_ind, 2, i, j]
 
     display_tensor = torch.cat((img, new_attentions))
+    display_tensor_combined = torch.cat((img, combined_map))
+
     print('Display tensor shape:', display_tensor.shape)
+    print('Display tensor combined shape:', display_tensor_combined.shape)
 
     # TODO: handle the layout better
     save_image(display_tensor, save_name, nrow=4, padding=0, normalize=True, scale_each=True)
+    save_image(display_tensor_combined, "combined_" + save_name, nrow=2, padding=0, normalize=True, scale_each=True)
