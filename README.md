@@ -51,11 +51,11 @@ The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/
 You can find more examples in the [atts](https://github.com/eminorhan/silicon-menagerie/tree/master/atts) folder.
 
 ### What you need
-* A reasonably recent version of PyTorch and torchvision (I have `pytorch==1.10.2` and `torchvision==0.11.3`). 
-* You do not need a GPU to load and use the models. 
-* If you're only doing inference and you're not feeding the model very large batches of input, you should be able to easily fit even the largest models here (ViT-L/16) on a single V100 GPU with 32GB memory.
+* A reasonably recent version of PyTorch and torchvision (I have `pytorch==1.10.2` and `torchvision==0.11.3`).
 * The `huggingface_hub` library to download the models from the Huggingface Hub (I have `huggingface-hub==0.10.0`).
 * For the attention visualizations, you will also need the PIL library (I have `pillow==8.4.0`).
+* You do not need a GPU to load and use the models. 
+* If you're only doing inference and you're not feeding the model very large batches of input, you should be able to easily fit even the largest models here (ViT-L/16) on a single V100 GPU with 32GB memory.
 
 ### Generative image models
 
