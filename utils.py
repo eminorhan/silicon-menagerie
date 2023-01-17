@@ -8,11 +8,12 @@ from huggingface_hub import hf_hub_download
 
 def load_model(model_name):
 
+    # parse identifier
     alg, data, model_spec = model_name.split("_")
 
     # checks
     assert alg in ["dino", "mugs", "mae"], "Unrecognized algorithm!"
-    assert data in ["say", "s", "a", "y", "imagenet100", "imagenet10", "imagenet3", "imagenet1"], "Unrecognized data!"
+    assert data in ["say", "sfp", "s", "a", "y", "imagenet100", "imagenet10", "imagenet3", "imagenet1"], "Unrecognized data!"
     assert model_spec in ["resnext50", "vitb14", "vitl16", "vitb16", "vits16"], "Unrecognized architecture!"
 
     if model_spec == "resnext50":
@@ -49,7 +50,7 @@ def load_dino_mugs(model, pretrained_weights, checkpoint_key):
         state_dict = {k.replace("module.", ""): v for k, v in state_dict.items()}
         # remove `backbone.` prefix induced by multicrop wrapper
         state_dict = {k.replace("backbone.", ""): v for k, v in state_dict.items()}
-        # remove `encoder.` prefix induced by MAE
+        # remove `encoder.` prefix if it exists
         state_dict = {k.replace("encoder.", ""): v for k, v in state_dict.items()}
 
         msg = model.load_state_dict(state_dict, strict=False)
