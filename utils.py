@@ -6,6 +6,24 @@ import sys
 import torch
 from huggingface_hub import hf_hub_download
 
+def get_available_models():
+    available_models = [
+        'dino_say_vitb14', 'dino_s_vitb14', 'dino_a_vitb14', 'dino_y_vitb14', 
+        'dino_imagenet100_vitb14', 'dino_imagenet10_vitb14', 'dino_imagenet3_vitb14', 'dino_imagenet1_vitb14',
+        'dino_say_resnext50', 'dino_s_resnext50', 'dino_a_resnext50', 'dino_y_resnext50', 'dino_sfp_resnext50',
+        'dino_say_vitl16', 'dino_s_vitl16', 'dino_a_vitl16', 'dino_y_vitl16',
+        'dino_say_vitb16', 'dino_s_vitb16', 'dino_a_vitb16', 'dino_y_vitb16',
+        'dino_say_vits16', 'dino_s_vits16', 'dino_a_vits16', 'dino_y_vits16',
+        'mugs_say_vitl16', 'mugs_s_vitl16', 'mugs_a_vitl16', 'mugs_y_vitl16',
+        'mugs_say_vitb16', 'mugs_s_vitb16', 'mugs_a_vitb16', 'mugs_y_vitb16',
+        'mugs_say_vits16', 'mugs_s_vits16', 'mugs_a_vits16', 'mugs_y_vits16',
+        'mae_say_vitl16', 'mae_s_vitl16', 'mae_a_vitl16', 'mae_y_vitl16',
+        'mae_say_vitb16', 'mae_s_vitb16', 'mae_a_vitb16', 'mae_y_vitb16',
+        'mae_say_vits16', 'mae_s_vits16', 'mae_a_vits16', 'mae_y_vits16',
+        ]
+
+    return available_models
+
 def load_model(model_name):
 
     # parse identifier
