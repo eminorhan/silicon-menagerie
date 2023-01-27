@@ -15,7 +15,7 @@ Model names are specified in the format `x_y_z`, where `x` is the self-supervise
 
 Here, `imagenet100`, `imagenet10`, `imagenet3`, and `imagenet1` are the full ImageNet training set and its subsets (10%, 3%, and 1% of the full training set, respectively). DINO models were trained with code from [this repository](https://github.com/eminorhan/dino), Mugs models were trained with code from [this repository](https://github.com/eminorhan/mugs), and the MAE models were trained with code from [this repository](https://github.com/eminorhan/mae). Training logs for all models can be found in the [`logs`](https://github.com/eminorhan/silicon-menagerie/tree/master/logs) folder. Please note that not all possible combinations are available at this time; you can see a list of all available models by running:
 
-```pycon
+```python
 >>> print(utils.get_available_models())
 ```
 
