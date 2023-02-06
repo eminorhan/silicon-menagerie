@@ -171,7 +171,7 @@ def preprocess_image(image_path, image_size):
 
     return img
 
-def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.device("cpu"), threshold=None):
+def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.device("cpu"), threshold=None, colorful=False):
     from torch.nn.functional import interpolate
     from torchvision.utils import save_image
     import random, colorsys
@@ -187,7 +187,6 @@ def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.
         return colors
 
     # make the image divisible by the patch size
-    print(img.shape)
     w, h = img.shape[1] - img.shape[1] % patch_size, img.shape[2] - img.shape[2] % patch_size
     img = img[:, :w, :h].unsqueeze(0)
 
@@ -218,20 +217,26 @@ def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.
         attentions = interpolate(attentions.unsqueeze(0), scale_factor=patch_size, mode="nearest")[0].cpu().numpy()
     
     abs_attentions = torch.from_numpy(abs(attentions))
-    colors = random_colors(nh, bright=True)
+    if colorful:
+        colors = random_colors(nh, bright=True)
+    else:
+        colors = torch.ones(nh, 3)
     new_attentions = torch.zeros(nh, 3, w, h)
     for i in range(nh):
         new_attentions[i, 0, :, :] = colors[i][0] * torch.from_numpy(attentions[i, :, :])
         new_attentions[i, 1, :, :] = colors[i][1] * torch.from_numpy(attentions[i, :, :])
         new_attentions[i, 2, :, :] = colors[i][2] * torch.from_numpy(attentions[i, :, :])
 
-    combined_map = torch.zeros(1, 3, w, h)
-    for i in range(w):
-        for j in range(h):
-            max_ind  = torch.argmax(abs_attentions[:, i, j])
-            combined_map[0, 0, i, j] = new_attentions[max_ind, 0, i, j]
-            combined_map[0, 1, i, j] = new_attentions[max_ind, 1, i, j]
-            combined_map[0, 2, i, j] = new_attentions[max_ind, 2, i, j]
+    print('Attentions min, max:', new_attentions.min(), new_attentions.max())
+    combined_map = torch.sum(new_attentions, 0, keepdim=True)
+
+    # combined_map = torch.zeros(1, 3, w, h)
+    # for i in range(w):
+    #     for j in range(h):
+    #         max_ind  = torch.argmax(abs_attentions[:, i, j])
+    #         combined_map[0, 0, i, j] = new_attentions[max_ind, 0, i, j]
+    #         combined_map[0, 1, i, j] = new_attentions[max_ind, 1, i, j]
+    #         combined_map[0, 2, i, j] = new_attentions[max_ind, 2, i, j]
 
     display_tensor = torch.cat((img, new_attentions))
     display_tensor_combined = torch.cat((img, combined_map))
@@ -240,5 +245,5 @@ def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.
     print('Display tensor combined shape:', display_tensor_combined.shape)
 
     # TODO: handle the layout better
-    save_image(display_tensor, save_name, nrow=4, padding=0, normalize=True, scale_each=True)
-    save_image(display_tensor_combined, "combined_" + save_name, nrow=2, padding=0, normalize=True, scale_each=True)
+    save_image(display_tensor, save_name, nrow=13, padding=0, normalize=True, scale_each=True)
+    save_image(display_tensor_combined, "composite_" + save_name, nrow=2, padding=0, normalize=True, scale_each=True)

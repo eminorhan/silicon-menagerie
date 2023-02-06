@@ -4,6 +4,14 @@
 
 This is a stand-alone repository to facilitate the use of all models I have trained on SAYCam (and more!). It is still in progress. More models and further functionalities will be forthcoming shortly. The models are all hosted on [Huggingface](https://huggingface.co/eminorhan), which, to my not inconsiderable surprise, seems to offer free unlimited storage for models and datasets (thanks Huggingface!).
 
+### What you need
+* A reasonably recent version of PyTorch and torchvision (I have `pytorch==1.13.1` and `torchvision==0.14.1`).
+* The `huggingface_hub` library to download the models from the Huggingface Hub (I have `huggingface-hub==0.12.0`).
+* For the attention visualizations, you will also need the PIL library (I have `pillow==9.3.0`).
+* For the generative models (VQGAN-GPT), you will need the PyTorch Lightning library (I have `pytorch-lightning==1.9.0`). This is a dependency of the [Taming Transformers](https://github.com/CompVis/taming-transformers) library.
+* You do not need a GPU to load and use the models. 
+* If you're only doing inference and you're not feeding the model very large batches of input, you should be able to easily fit even the largest models here on a single V100 GPU with 32GB memory.
+
 ### Image embedding models
 
 #### Loading the models
@@ -36,6 +44,7 @@ Please see the example code [here](https://github.com/eminorhan/dino/blob/master
 
 #### Visualizing the attention heads
 I also include here some bare bones functionality to visualize the attention heads of the transformer models. All you need to do is something along the lines of:
+
 ```python
 import torch
 from utils import load_model, preprocess_image, visualize_attentions
@@ -46,6 +55,7 @@ img = preprocess_image(img_path="imgs/img_0.jpg", img_size=1400)
 with torch.no_grad():
     visualize_attentions(model, img, patch_size=14)
 ```
+
 The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test.py) contains a more fleshed out usage example. This will produce images like the following (with the original image on the top left and the attention maps for each head after that).
 
 **`dino_say_vitb14`:**
@@ -56,19 +66,32 @@ The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/
 
 You can find more examples in the [atts](https://github.com/eminorhan/silicon-menagerie/tree/master/atts) folder.
 
-### What you need
-* A reasonably recent version of PyTorch and torchvision (I have `pytorch==1.10.2` and `torchvision==0.11.3`).
-* The `huggingface_hub` library to download the models from the Huggingface Hub (I have `huggingface-hub==0.10.0`).
-* For the attention visualizations, you will also need the PIL library (I have `pillow==8.4.0`).
-* You do not need a GPU to load and use the models. 
-* If you're only doing inference and you're not feeding the model very large batches of input, you should be able to easily fit even the largest models here (ViT-L/16) on a single V100 GPU with 32GB memory.
-
 ### Generative image models
 
-These are generative models that can be used to generate images. For these models, we first learn a discrete codebook of size 8192 with a [VQ-GAN](https://github.com/CompVis/taming-transformers) model and then encode the video frames as 32x32 integers from this codebook. These discretized and spatially downsampled frames are then fed into a GPT model to learn a prior over the frames. The two parts of the model are shared separately below. The `encoder-decoder` part can be used to encode images with the discrete codebook, as well as decode images (to 256x256 pixels) given a discrete latent representation. The `GPT` part can be used to generate (or sample) new discrete latent representations.
+These are generative models that can be used to generate images. For these models, we first learn a discrete codebook of size 8192 with a [VQ-GAN](https://github.com/CompVis/taming-transformers) model and then encode the video frames as 32x32 integers from this codebook. These discretized and spatially downsampled frames are then fed into a GPT model to learn a prior over the frames. 
 
-**TBD**
+Loading a pretrained model is as easy as:
 
-### Generative video models
+```python
+from gpt_utils import load_model
 
-**TBD**
+gpt_model, vq_model = load_model('say_gimel')
+```
+
+Here, `'say_gimel'` is the model identifier, `vq_model` is the VQ codebook part of the model that is used to encode images into latents and decode latents back into images. 
+
+I also provide two utility functions in [`gpt_utils`](https://github.com/eminorhan/silicon-menagerie/blob/master/gpt_utils.py) to generate images from the loaded VQGAN-GPT model: `generate_images_freely` generates unconditional samples from the model and `generate_images_from_half` generates conditional samples conditioned on the upper halves of a set of images. You can use these functions as follows:
+
+```python
+from gpt_utils import load_model
+
+gpt_model, vq_model = load_model('say_gimel')
+
+# generate unconditional samples from the loaded model
+x = generate_images_freely(gpt_model, vq_model, n_samples=36)
+
+# generate conditional samples from the model
+x = generate_images_from_half(gpt_model, vq_model, data_path=/DIR/CONDITITIONING/IMAGES, n_imgs=1, n_samples_per_img=2)
+```
+
+The file [`test_gpt_model.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test_gpt_model.py) contains a more fleshed out usage example.

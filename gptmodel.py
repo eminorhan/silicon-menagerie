@@ -1,15 +1,11 @@
 """
-GPT model:
-- the initial stem consists of a combination of token encoding and a positional encoding
-- the heart of it is a uniform sequence of Transformer blocks
-    - each Transformer is a sequential combination of a 1-hidden-layer MLP block and a self-attention block
-    - all blocks feed into a central residual pathway similar to resnets
-- the final decoder is a linear projection into a vanilla Softmax classifier
+Implements GPT model. The bulk of the code here is based on Andrej Karpathy's minGPT implementation.
 """
 
 import math
 import torch
 import torch.nn as nn
+import numpy as np
 from torch.nn import functional as F
 
 
@@ -25,29 +21,34 @@ class GPTConfig:
         for k,v in kwargs.items():
             setattr(self, k, v)
 
+
 class GPT_alef(GPTConfig):
-    """ Roughly ??M params """
+    """ Roughly 110M params """
     n_layer = 12
     n_head = 12
     n_embd = 768
 
+
 class GPT_bet(GPTConfig):
-    """ Roughly ??M params """
+    """ Roughly 336M params """
     n_layer = 24
     n_head = 16
     n_embd = 1024
 
+
 class GPT_gimel(GPTConfig):
-    """ Roughly ??M params """
+    """ Roughly 730M params """
     n_layer = 36
     n_head = 20
     n_embd = 1280
 
+
 class GPT_dalet(GPTConfig):
-    """ Roughly ??M params """
+    """ Roughly 1.5B params """
     n_layer = 48
     n_head = 25
     n_embd = 1600
+
 
 class MeanLayer(torch.nn.Module):
     def __init__(self, dim, keepdim=False):
@@ -58,6 +59,7 @@ class MeanLayer(torch.nn.Module):
     def forward(self, x):
         out = torch.mean(x, self.dim, self.keepdim)
         return out
+
 
 class CausalSelfAttention(nn.Module):
     """
@@ -87,7 +89,7 @@ class CausalSelfAttention(nn.Module):
         self.register_buffer("mask", torch.tril(torch.ones(config.block_size, config.block_size)).view(1, 1, config.block_size, config.block_size))
         self.n_head = config.n_head
 
-    def forward(self, x, layer_past=None):
+    def forward(self, x):
         B, T, C = x.size()
 
         # calculate query, key, values for all heads in batch and move head forward to be the batch dim
@@ -106,6 +108,7 @@ class CausalSelfAttention(nn.Module):
         # output projection
         y = self.resid_drop(self.proj(y))
         return y
+
 
 class Block(nn.Module):
     """ an unassuming Transformer block """
@@ -126,6 +129,7 @@ class Block(nn.Module):
         x = x + self.attn(self.ln1(x))
         x = x + self.mlp(self.ln2(x))
         return x
+
 
 class GPT(nn.Module):
     """  the full GPT language model, with a context size of block_size """
@@ -185,8 +189,76 @@ class GPT(nn.Module):
 
         return logits, loss, unreduced_loss
 
+    def sample(self, x, steps, temperature=1.0, sample=False, top_k=None):
+        """
+        conditioned on x (shape: b x t), predict the next token, feeding the predictions back into the model each time.
+        """
+        def top_k_logits(logits, k):
+            v, _ = torch.topk(logits, k)
+            out = logits.clone()
+            out[out < v[:, [-1]]] = -float('Inf')
+            return out
+    
+        block_size = self.get_block_size()
+        
+        for k in range(steps):
+            if k % 100 == 0:
+                print('Step {} of {}'.format(k, steps))
+
+            x_cond = x if x.size(1) <= block_size else x[:, -block_size:] # crop context if needed
+            logits, _, _ = self.forward(x_cond)
+            
+            # pluck the logits at the final step and scale by temperature
+            logits = logits[:, -1, :] / temperature
+            
+            # optionally crop probabilities to only the top k options
+            if top_k is not None:
+                logits = top_k_logits(logits, top_k)
+            
+            # apply softmax to convert to probabilities
+            probs = F.softmax(logits, dim=-1)
+            
+            # sample from the distribution or choose the most likely
+            if sample:
+                ix = torch.multinomial(probs, num_samples=1)
+            else:
+                _, ix = torch.topk(probs, k=1, dim=-1)
+            
+            # append to the sequence and continue
+            x = torch.cat((x, ix), dim=1)
+
+        return x
+
+    def sample_freely(self, n_samples=1):
+        # uniformly sample the first pixel
+        counts = torch.ones(self.model_config.vocab_size)
+        prob = counts / counts.sum()
+
+        start_pixel = np.random.choice(np.arange(self.model_config.vocab_size), size=(n_samples, 1), replace=True, p=prob.numpy())
+        start_pixel = torch.from_numpy(start_pixel)
+        if torch.cuda.is_available():
+            start_pixel = start_pixel.cuda()
+
+        print('Started sampling.')    
+        pixels = self.sample(start_pixel, self.get_block_size(), temperature=0.96, sample=True, top_k=128)
+
+        return pixels
+
+    def sample_from_half(self, x, n_samples=2):
+        print('Started sampling.')
+        all_pixels = []
+        ctx_len = (self.get_block_size() + 1) // 2
+
+        all_pixels.append(x)  # append the original images first
+        for _ in range(n_samples-1):
+            pixels = self.sample(x[:, :ctx_len], ctx_len, temperature=0.96, sample=True, top_k=128)
+            all_pixels.append(pixels)
+
+        return torch.cat(all_pixels)
+
+
 class LinearProbeGPT(nn.Module):
-    """  GPT with a linear classifier head attached """
+    """ Optional: GPT with a linear classifier head attached """
     def __init__(self, tok_emb, pos_emb, drop, blocks, ln_1, head):
         super().__init__()
 
@@ -200,8 +272,8 @@ class LinearProbeGPT(nn.Module):
 
         print('Number of parameters:', sum(p.numel() for p in self.parameters()))
 
-    def forward(self, idx, targets=None):
-        _, t = idx.size()
+    def forward(self, idx):
+        b, t = idx.size()
 
         # forward the GPT model
         token_embeddings = self.tok_emb(idx)  # each index maps to a (learnable) vector

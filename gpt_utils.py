@@ -8,16 +8,28 @@ from vqmodel import VQModel, GumbelVQ
 from huggingface_hub import hf_hub_download
 
 
-def load_model(gpt_name, vq_name):
+def load_model(gpt_name):
+    # check
+    assert gpt_name in ["say_gimel", "s_gimel", "a_gimel", "y_gimel", "imagenet100_gimel", "imagenet10_gimel", "imagenet1_gimel"], "Unrecognized GPT model!"
 
-    # checks
-    assert gpt_name in ["gimel_say", "gimel_s", "gimel_a", "gimel_y", "gimel_imagenet100", "gimel_imagenet10", "gimel_imagenet1"], "Unrecognized data!"
-    assert vq_name in ["say_32x32_8192", "s_32x32_8192", "a_32x32_8192", "y_32x32_8192"], "Unrecognized VQ model!"
+    # switcher maps gpt model name to corresponding vq encoder model name
+    switcher = {
+        "say_gimel": "say_32x32_8192",
+        "s_gimel": "s_32x32_8192",
+        "a_gimel": "a_32x32_8192",
+        "y_gimel": "y_32x32_8192",
+        "imagenet100_gimel": "imagenet_16x16_16384",
+        "imagenet10_gimel": "imagenet_16x16_16384",
+        "imagenet1_gimel": "imagenet_16x16_16384"
+    }
+
+    # assign corresponding vq model name
+    vq_name = switcher[gpt_name]
 
     # download checkpoint from hf (TODO: check if these load correctly)
-    gpt_model_ckpt = hf_hub_download(repo_id="eminorhan/gpt_saycam/gpt_pretrained_models/", filename=gpt_name+".pt")
-    vq_config_ckpt = hf_hub_download(repo_id="eminorhan/gpt_saycam/vqgan_pretrained_models/", filename=vq_name+".yaml")
-    vq_model_ckpt = hf_hub_download(repo_id="eminorhan/gpt_saycam/vqgan_pretrained_models/", filename=vq_name+".ckpt")
+    gpt_model_ckpt = hf_hub_download(repo_id="eminorhan/gpt_saycam", subfolder="gpt_pretrained_models", filename=gpt_name+".pt")
+    vq_config_ckpt = hf_hub_download(repo_id="eminorhan/gpt_saycam", subfolder="vqgan_pretrained_models", filename=vq_name+".yaml")
+    vq_model_ckpt = hf_hub_download(repo_id="eminorhan/gpt_saycam", subfolder="vqgan_pretrained_models", filename=vq_name+".ckpt")
 
     # load gpt model
     gpt_config = gptmodel.__dict__['GPT_gimel'](8192, 1023)  # args: vocab_size, block_size (TODO: handle this better)
@@ -48,6 +60,64 @@ def load_vqgan(config, ckpt_path=None, gumbel=False):
         sd = torch.load(ckpt_path, map_location="cpu")["state_dict"]
         missing, unexpected = model.load_state_dict(sd, strict=False)
     return model.eval()
+
+def generate_images_freely(gpt_model, vq_model, n_samples=1):
+
+    device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+
+    gpt_model.to(device)
+    gpt_model.eval()
+
+    vq_model.to(device)
+    vq_model.eval()
+
+    # sample latents
+    with torch.no_grad():
+        s = gpt_model.sample_freely(n_samples=n_samples)
+
+    # decode latents into images
+    z = vq_model.quantize.get_codebook_entry(s, (n_samples, 32, 32, 256))  # TODO: handle this better
+    x = vq_model.decode(z)
+    return x
+
+def generate_images_from_half(gpt_model, vq_model, data_path, n_imgs=1, n_samples_per_img=2):
+    from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor
+    from torchvision.datasets import ImageFolder
+    from torch.utils.data import DataLoader
+
+    device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+
+    gpt_model.to(device)
+    gpt_model.eval()
+
+    vq_model.to(device)
+    vq_model.eval()
+
+    # data preprocessing
+    transform = Compose([Resize(288), CenterCrop(256), ToTensor()])
+    dataset = ImageFolder(data_path, transform=transform)
+    loader = DataLoader(dataset, batch_size=n_imgs, shuffle=True, num_workers=4, pin_memory=True)
+
+    for it, (imgs, _) in enumerate(loader):
+        imgs = preprocess_vqgan(imgs)
+        imgs = imgs.to(device)
+        z, _, [_, _, indices] = vq_model.encode(imgs)
+        indices = indices.reshape(n_imgs, -1)
+
+        # only 1 iteration
+        if it == 0:
+            break
+
+    n_samples = n_samples_per_img * n_imgs
+
+    # sample latents
+    with torch.no_grad():
+        s = gpt_model.sample_from_half(indices, n_samples=n_samples_per_img)
+
+    # decode latents into images
+    z = vq_model.quantize.get_codebook_entry(s, (n_samples, 32, 32, 256))  # TODO: handle these better
+    x = vq_model.decode(z)
+    return x
 
 def set_seed(seed):
     random.seed(seed)
