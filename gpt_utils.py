@@ -87,7 +87,7 @@ def generate_images_freely(gpt_model, vq_model, n_samples=1):
     x = vq_model.decode(z)
     return x
 
-def generate_images_from_half(gpt_model, vq_model, data_path, n_imgs=1, n_samples_per_img=2):
+def generate_images_from_half(gpt_model, vq_model, img_dir, n_imgs=1, n_samples_per_img=2):
     from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor
     from torchvision.datasets import ImageFolder
     from torch.utils.data import DataLoader
@@ -102,7 +102,7 @@ def generate_images_from_half(gpt_model, vq_model, data_path, n_imgs=1, n_sample
 
     # data preprocessing
     transform = Compose([Resize(288), CenterCrop(256), ToTensor()])
-    dataset = ImageFolder(data_path, transform=transform)
+    dataset = ImageFolder(img_dir, transform=transform)
     loader = DataLoader(dataset, batch_size=n_imgs, shuffle=True, num_workers=4, pin_memory=True)
 
     for it, (imgs, _) in enumerate(loader):
