@@ -8,7 +8,7 @@ This is a stand-alone repository to facilitate the use of all models I have trai
 * A reasonably recent version of PyTorch and torchvision (I have `pytorch==1.13.1` and `torchvision==0.14.1`).
 * The `huggingface_hub` library to download the models from the Huggingface Hub (I have `huggingface-hub==0.12.0`).
 * For the attention visualizations, you will also need the PIL library (I have `pillow==9.3.0`).
-* For the generative models (VQGAN-GPT), you will need the PyTorch Lightning library (I have `pytorch-lightning==1.9.0`). This is a dependency of the [Taming Transformers](https://github.com/CompVis/taming-transformers) library.
+* For the generative models (VQGAN-GPT), you will need the PyTorch Lightning library (I have `pytorch-lightning==1.9.0`). This is a dependency of the [Taming Transformers](https://github.com/CompVis/taming-transformers) library (ugh).
 * You do not need a GPU to load and use the models. 
 * If you're only doing inference and you're not feeding the model very large batches of input, you should be able to easily fit even the largest models here on a single V100 GPU with 32GB memory.
 
@@ -98,6 +98,7 @@ I also provide two utility functions in [`gpt_utils`](https://github.com/eminorh
 ```python
 from gpt_utils import load_model
 
+# load model
 gpt_model, vq_model = load_model('say_gimel')
 
 # generate unconditional samples from the loaded model
@@ -106,7 +107,7 @@ x = generate_images_freely(gpt_model, vq_model, n_samples=36)
 # generate conditional samples from the model
 x = generate_images_from_half(gpt_model, vq_model, img_path=/DIR/COND/IMGS, n_imgs=1, n_samples_per_img=2)
 ```
-where `img_path` is the path to the directory containing the conditioning images. We randomly sample `n_imgs` images from this cirectory to condition on. The file [`test_gpt_model.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test_gpt_model.py) contains a more fleshed out usage example. You can generate images like the following with the functions:
+where `img_path` is the path to the directory containing the conditioning images. We randomly sample `n_imgs` images from this directory to condition on. The file [`test_gpt_model.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test_gpt_model.py) contains a more fleshed out usage example. You can generate images like the following with these functions:
 
 **`unconditional`:**
 ![](atts/.png)

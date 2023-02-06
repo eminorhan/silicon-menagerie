@@ -239,13 +239,13 @@ class GPT(nn.Module):
         if torch.cuda.is_available():
             start_pixel = start_pixel.cuda()
 
-        print('Started sampling.')    
+        print('Started unconditional sampling.')    
         pixels = self.sample(start_pixel, self.get_block_size(), temperature=0.96, sample=True, top_k=128)
 
         return pixels
 
     def sample_from_half(self, x, n_samples=2):
-        print('Started sampling.')
+        print('Started conditional sampling.')
         all_pixels = []
         ctx_len = (self.get_block_size() + 1) // 2
 
