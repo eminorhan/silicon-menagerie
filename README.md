@@ -107,7 +107,7 @@ x = generate_images_freely(gpt_model, vq_model, n_samples=36)
 # generate conditional samples from the model
 x = generate_images_from_half(gpt_model, vq_model, img_dir, n_imgs=1, n_samples_per_img=2)
 ```
-where `img_path` is the path to the directory containing the conditioning images. We randomly sample `n_imgs` images from this directory to condition on. The file [`test_gpt_model.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test_gpt_model.py) contains a more fleshed out usage example. You can generate images like the following with these functions:
+where `img_dir` is the directory containing the conditioning images. We randomly sample `n_imgs` images from this directory to condition on. We generate `n_samples_per_img` conditional samples per image. The file [`test_gpt_model.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test_gpt_model.py) contains a more fleshed out usage example. You can generate images like the following with these functions:
 
 **`unconditional`:**
 ![](atts/.png)
