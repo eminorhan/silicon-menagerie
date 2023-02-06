@@ -96,7 +96,7 @@ You will get an error if you try to load an unavailable model.
 I also provide two utility functions in [`gpt_utils`](https://github.com/eminorhan/silicon-menagerie/blob/master/gpt_utils.py) to generate images from the pretrained VQGAN-GPT models: `generate_images_freely` generates unconditional samples from the model and `generate_images_from_half` generates conditional samples conditioned on the upper halves of a set of images. You can use these functions as follows:
 
 ```python
-from gpt_utils import load_model
+from gpt_utils import load_model, generate_images_freely, generate_images_from_half
 
 # load model
 gpt_model, vq_model = load_model('say_gimel')
