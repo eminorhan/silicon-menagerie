@@ -78,9 +78,22 @@ from gpt_utils import load_model
 gpt_model, vq_model = load_model('say_gimel')
 ```
 
-Here, `'say_gimel'` is the model identifier, `vq_model` is the VQ codebook part of the model that is used to encode images into latents and decode latents back into images. 
+Here, `'say_gimel'` is the model identifier, `vq_model` is the VQ codebook part of the model that is used to encode images into latents and decode latents back into images, and `gpt_model` is the pretrained GPT model. Model names are specified in the format `x_y`, where `x` is the data used for training the model and `y` is the name of the model config:
 
-I also provide two utility functions in [`gpt_utils`](https://github.com/eminorhan/silicon-menagerie/blob/master/gpt_utils.py) to generate images from the loaded VQGAN-GPT model: `generate_images_freely` generates unconditional samples from the model and `generate_images_from_half` generates conditional samples conditioned on the upper halves of a set of images. You can use these functions as follows:
+* `x` can be one of `say`, `s`, `a`, `y`, `imagenet100`, `imagenet10`, or `imagenet1`
+* `y` can be one of `alef`, `bet`, `gimel`, `dalet`
+
+Here, `alef`, `bet`, `gimel`, `dalet` refer to model configurations with different sizes, `dalet` being the largest (1.5B params) and  `alef` being the smallest (110M params). You can find the detailed model specifications [here](https://github.com/eminorhan/silicon-menagerie/blob/master/gptmodel.py). Please note that not all possible combinations are available at this time; you can see a list of all available models by running:
+
+```python
+>>> print(gpt_utils.get_available_models())
+```
+
+You will get an error if you try to load an unavailable model.
+
+#### Generating images from the pretrained models
+
+I also provide two utility functions in [`gpt_utils`](https://github.com/eminorhan/silicon-menagerie/blob/master/gpt_utils.py) to generate images from the pretrained VQGAN-GPT models: `generate_images_freely` generates unconditional samples from the model and `generate_images_from_half` generates conditional samples conditioned on the upper halves of a set of images. You can use these functions as follows:
 
 ```python
 from gpt_utils import load_model
@@ -91,7 +104,14 @@ gpt_model, vq_model = load_model('say_gimel')
 x = generate_images_freely(gpt_model, vq_model, n_samples=36)
 
 # generate conditional samples from the model
-x = generate_images_from_half(gpt_model, vq_model, data_path=/DIR/CONDITITIONING/IMAGES, n_imgs=1, n_samples_per_img=2)
+x = generate_images_from_half(gpt_model, vq_model, img_path=/DIR/COND/IMGS, n_imgs=1, n_samples_per_img=2)
 ```
+where `img_path` is the path to the directory containing the conditioning images. We randomly sample `n_imgs` images from this cirectory to condition on. The file [`test_gpt_model.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test_gpt_model.py) contains a more fleshed out usage example. You can generate images like the following with the functions:
 
-The file [`test_gpt_model.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test_gpt_model.py) contains a more fleshed out usage example.
+**`unconditional`:**
+![](atts/.png)
+
+**`conditional`:**
+![](atts/.png)
+
+You can find more examples in the [gpt_samples](https://github.com/eminorhan/silicon-menagerie/tree/master/gpt_samples) folder.

@@ -8,6 +8,13 @@ from vqmodel import VQModel, GumbelVQ
 from huggingface_hub import hf_hub_download
 
 
+def get_available_models():
+    available_models = [
+        'say_gimel'
+        ]
+
+    return available_models
+
 def load_model(gpt_name):
     # check
     assert gpt_name in ["say_gimel", "s_gimel", "a_gimel", "y_gimel", "imagenet100_gimel", "imagenet10_gimel", "imagenet1_gimel"], "Unrecognized GPT model!"
@@ -117,6 +124,8 @@ def generate_images_from_half(gpt_model, vq_model, data_path, n_imgs=1, n_sample
     # decode latents into images
     z = vq_model.quantize.get_codebook_entry(s, (n_samples, 32, 32, 256))  # TODO: handle these better
     x = vq_model.decode(z)
+    x[:, :, 126, :] = 1  # draw a line in the middle of image
+
     return x
 
 def set_seed(seed):
