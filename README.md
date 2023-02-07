@@ -56,7 +56,7 @@ with torch.no_grad():
     visualize_attentions(model, img, patch_size=14)
 ```
 
-The file [`test.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test.py) contains a more fleshed out usage example. This will produce images like the following (with the original image on the top left and the attention maps for each head after that).
+The file [`test_emb_model.py`](https://github.com/eminorhan/silicon-menagerie/blob/master/test_emb_model.py) contains a more fleshed out usage example. This will produce images like the following (with the original image on the top left and the attention maps for each head after that).
 
 **`dino_say_vitb14`:**
 ![](atts/dino_say_vitb14_img_0.jpeg)
@@ -68,7 +68,7 @@ You can find more examples in the [atts](https://github.com/eminorhan/silicon-me
 
 ## Generative image models (VQGAN-GPT)
 
-These are generative models that can be used to generate images. For these models, we first learn a discrete codebook of size 8192 with a [VQ-GAN](https://github.com/CompVis/taming-transformers) model and then encode the video frames as 32x32 integers from this codebook. These discretized and spatially downsampled frames are then fed into a GPT model to learn a prior over the frames. 
+These are generative models that can be used to generate images. For these models, we first learn a discrete codebook with a [VQ-GAN](https://github.com/CompVis/taming-transformers) model and then encode the video frames as 32x32 integers from this codebook. These discretized and spatially downsampled frames are then fed into a GPT model to learn a prior over the frames. 
 
 ### Loading the models
 Loading a pretrained VQGAN-GPT model is extremely easy:

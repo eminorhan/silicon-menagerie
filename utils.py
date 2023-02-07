@@ -171,7 +171,7 @@ def preprocess_image(image_path, image_size):
 
     return img
 
-def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.device("cpu"), threshold=None, colorful=False):
+def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.device("cpu"), threshold=None):
     from torch.nn.functional import interpolate
     from torchvision.utils import save_image
     import random, colorsys
@@ -211,39 +211,37 @@ def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.
             th_attn[head] = th_attn[head][idx2[head]]
         th_attn = th_attn.reshape(nh, w_featmap, h_featmap).float()
         # interpolate
-        attentions = interpolate(th_attn.unsqueeze(0), scale_factor=patch_size, mode="nearest")[0].cpu().numpy()
+        attentions = interpolate(th_attn.unsqueeze(0), scale_factor=patch_size, mode="nearest")[0]
     else: 
         attentions = attentions.reshape(nh, w_featmap, h_featmap)
-        attentions = interpolate(attentions.unsqueeze(0), scale_factor=patch_size, mode="nearest")[0].cpu().numpy()
+        attentions = interpolate(attentions.unsqueeze(0), scale_factor=patch_size, mode="nearest")[0]
     
-    abs_attentions = torch.from_numpy(abs(attentions))
-    if colorful:
-        colors = random_colors(nh, bright=True)
-    else:
-        colors = torch.ones(nh, 3)
-    new_attentions = torch.zeros(nh, 3, w, h)
+    # create some random colors for attention heads
+    colors = random_colors(nh, bright=True)
+
+    # bw maps
+    bw_attentions = torch.zeros(nh, 3, w, h)
     for i in range(nh):
-        new_attentions[i, 0, :, :] = colors[i][0] * torch.from_numpy(attentions[i, :, :])
-        new_attentions[i, 1, :, :] = colors[i][1] * torch.from_numpy(attentions[i, :, :])
-        new_attentions[i, 2, :, :] = colors[i][2] * torch.from_numpy(attentions[i, :, :])
+        bw_attentions[i, 0, :, :] = attentions[i, :, :]
+        bw_attentions[i, 1, :, :] = attentions[i, :, :]
+        bw_attentions[i, 2, :, :] = attentions[i, :, :]
 
-    print('Attentions min, max:', new_attentions.min(), new_attentions.max())
-    combined_map = torch.sum(new_attentions, 0, keepdim=True)
+    print('Attentions min, max:', bw_attentions.min(), bw_attentions.max())
 
-    # combined_map = torch.zeros(1, 3, w, h)
-    # for i in range(w):
-    #     for j in range(h):
-    #         max_ind  = torch.argmax(abs_attentions[:, i, j])
-    #         combined_map[0, 0, i, j] = new_attentions[max_ind, 0, i, j]
-    #         combined_map[0, 1, i, j] = new_attentions[max_ind, 1, i, j]
-    #         combined_map[0, 2, i, j] = new_attentions[max_ind, 2, i, j]
+    # combined (summed) bw map
+    bw_combined_map = torch.sum(bw_attentions, 0, keepdim=True)
 
-    display_tensor = torch.cat((img, new_attentions))
-    display_tensor_combined = torch.cat((img, combined_map))
+    # combined cl map
+    cl_combined_map = torch.zeros(1, 3, w, h)
+    for i in range(w):
+        for j in range(h):
+            max_ind  = torch.argmax(attentions[:, i, j])
+            cl_combined_map[0, 0, i, j] = (0.7*colors[max_ind][0] + 0.3) * bw_attentions[max_ind, 0, i, j]
+            cl_combined_map[0, 1, i, j] = (0.7*colors[max_ind][1] + 0.3) * bw_attentions[max_ind, 1, i, j]
+            cl_combined_map[0, 2, i, j] = (0.7*colors[max_ind][2] + 0.3) * bw_attentions[max_ind, 2, i, j]
 
-    print('Display tensor shape:', display_tensor.shape)
-    print('Display tensor combined shape:', display_tensor_combined.shape)
+    display_tensor = torch.cat((img, bw_attentions))
+    display_tensor_bw_cl_combined = torch.cat((img, bw_combined_map, cl_combined_map))
 
-    # TODO: handle the layout better
     save_image(display_tensor, save_name, nrow=13, padding=0, normalize=True, scale_each=True)
-    save_image(display_tensor_combined, "composite_" + save_name, nrow=2, padding=0, normalize=True, scale_each=True)
+    save_image(display_tensor_bw_cl_combined, "composite_bw_cl_" + save_name, nrow=3, padding=0, normalize=True, scale_each=True)
