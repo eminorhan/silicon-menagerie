@@ -250,7 +250,8 @@ class GPT(nn.Module):
         ctx_len = (self.get_block_size() + 1) // 2
 
         all_pixels.append(x)  # append the original images first
-        for _ in range(n_samples-1):
+        for i in range(n_samples-1):
+            print('Sample {} of {}'.format(i, n_samples-1))
             pixels = self.sample(x[:, :ctx_len], ctx_len, temperature=0.96, sample=True, top_k=128)
             all_pixels.append(pixels)
 
