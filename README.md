@@ -70,6 +70,7 @@ You can find more examples in the [atts](https://github.com/eminorhan/silicon-me
 
 These are generative models that can be used to generate images. For these models, we first learn a discrete codebook of size 8192 with a [VQ-GAN](https://github.com/CompVis/taming-transformers) model and then encode the video frames as 32x32 integers from this codebook. These discretized and spatially downsampled frames are then fed into a GPT model to learn a prior over the frames. 
 
+### Loading the models
 Loading a pretrained VQGAN-GPT model is extremely easy:
 
 ```python
@@ -78,7 +79,7 @@ from gpt_utils import load_model
 gpt_model, vq_model = load_model('say_gimel')
 ```
 
-Here, `'say_gimel'` is the model identifier, `vq_model` is the VQ codebook part of the model that is used to encode images into latents and decode latents back into images, and `gpt_model` is the pretrained GPT model. Model names are specified in the format `x_y`, where `x` is the data used for training the model and `y` is the name of the GPT model configuration:
+Here, `'say_gimel'` is the model identifier, `vq_model` is the VQ codebook part of the model that is used to encode images into latents and decode latents back into images, and `gpt_model` is the pretrained GPT model. Model identifiers are specified in the format `x_y`, where `x` is the data used for training the model and `y` is the name of the GPT model configuration:
 
 * `x` can be one of `say`, `s`, `a`, `y`, `imagenet100`, `imagenet10`, or `imagenet1`
 * `y` can be one of `alef`, `bet`, `gimel`, `dalet`

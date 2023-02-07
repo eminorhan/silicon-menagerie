@@ -7,14 +7,14 @@ model_name = 'say_gimel'
 gpt_model, vq_model = load_model(model_name)
 
 
-# ========== GENERATE UNCONDITIONAL SAMPLES ==========
-n_samples = 36  # total number of samples to generate
+# # ========== GENERATE UNCONDITIONAL SAMPLES ==========
+# n_samples = 36  # total number of samples to generate
 
-x = generate_images_freely(gpt_model, vq_model, n_samples=n_samples)
+# x = generate_images_freely(gpt_model, vq_model, n_samples=n_samples)
 
-# save generated images
-save_image(x, "free_samples_from_{}.png".format(model_name), nrow=int(math.sqrt(n_samples)), padding=1, normalize=True)
-# ============================================================
+# # save generated images
+# save_image(x, "free_samples_from_{}.png".format(model_name), nrow=int(math.sqrt(n_samples)), padding=1, normalize=True)
+# # ============================================================
 
 
 # ========== GENERATE CONDITIONAL SAMPLES ==========
