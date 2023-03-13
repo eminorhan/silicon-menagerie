@@ -9,7 +9,8 @@ from huggingface_hub import hf_hub_download
 def get_available_models():
     available_models = [
         'dino_say_vitb14', 'dino_s_vitb14', 'dino_a_vitb14', 'dino_y_vitb14', 
-        'dino_imagenet100_vitb14', 'dino_imagenet10_vitb14', 'dino_imagenet3_vitb14', 'dino_imagenet1_vitb14',
+        'dino_imagenet100_vitb14', 'dino_imagenet10_vitb14', 'dino_imagenet1_vitb14',
+        'dino_kinetics-200h_vitb14', 'dino_ego4d-200h_vitb14',
         'dino_say_resnext50', 'dino_s_resnext50', 'dino_a_resnext50', 'dino_y_resnext50', 'dino_sfp_resnext50',
         'dino_say_vitl16', 'dino_s_vitl16', 'dino_a_vitl16', 'dino_y_vitl16',
         'dino_say_vitb16', 'dino_s_vitb16', 'dino_a_vitb16', 'dino_y_vitb16',
@@ -31,7 +32,7 @@ def load_model(model_name):
 
     # checks
     assert alg in ["dino", "mugs", "mae"], "Unrecognized algorithm!"
-    assert data in ["say", "sfp", "s", "a", "y", "imagenet100", "imagenet10", "imagenet3", "imagenet1"], "Unrecognized data!"
+    assert data in ["say", "sfp", "s", "a", "y", "imagenet100", "imagenet10", "imagenet1", "kinetics-200h", "ego4d-200h"], "Unrecognized data!"
     assert model_spec in ["resnext50", "vitb14", "vitl16", "vitb16", "vits16"], "Unrecognized architecture!"
 
     if model_spec == "resnext50":
@@ -231,17 +232,17 @@ def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.
     # combined (summed) bw map
     bw_combined_map = torch.sum(bw_attentions, 0, keepdim=True)
 
-    # combined cl map
+    # combined cl map (colored by maximally active head at each pixel)
     cl_combined_map = torch.zeros(1, 3, w, h)
     for i in range(w):
         for j in range(h):
             max_ind  = torch.argmax(attentions[:, i, j])
-            cl_combined_map[0, 0, i, j] = (0.7*colors[max_ind][0] + 0.3) * bw_attentions[max_ind, 0, i, j]
-            cl_combined_map[0, 1, i, j] = (0.7*colors[max_ind][1] + 0.3) * bw_attentions[max_ind, 1, i, j]
-            cl_combined_map[0, 2, i, j] = (0.7*colors[max_ind][2] + 0.3) * bw_attentions[max_ind, 2, i, j]
+            cl_combined_map[0, 0, i, j] = (0.5*colors[max_ind][0] + 0.5) * bw_attentions[max_ind, 0, i, j]
+            cl_combined_map[0, 1, i, j] = (0.5*colors[max_ind][1] + 0.5) * bw_attentions[max_ind, 1, i, j]
+            cl_combined_map[0, 2, i, j] = (0.5*colors[max_ind][2] + 0.5) * bw_attentions[max_ind, 2, i, j]
 
-    display_tensor = torch.cat((img, bw_attentions))
-    display_tensor_bw_cl_combined = torch.cat((img, bw_combined_map, cl_combined_map))
+    # save combined bw attention map 
+    save_image(bw_combined_map, 'composite_bw_' + save_name, nrow=1, padding=0, normalize=True, scale_each=True)
 
-    save_image(display_tensor, save_name, nrow=13, padding=0, normalize=True, scale_each=True)
-    save_image(display_tensor_bw_cl_combined, "composite_bw_cl_" + save_name, nrow=3, padding=0, normalize=True, scale_each=True)
+    # save combined cl attention map 
+    save_image(cl_combined_map, 'composite_cl_' + save_name, nrow=1, padding=0, normalize=True, scale_each=True)

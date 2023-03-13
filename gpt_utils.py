@@ -10,9 +10,12 @@ from huggingface_hub import hf_hub_download
 
 def get_available_models():
     available_models = [
-        'say_gimel', 
-        'imagenet100_alef', 'imagenet100_bet', 'imagenet100_dalet',
-        'imagenet100_gimel', 'imagenet10_gimel', 'imagenet1_gimel'
+        'say_gimel', 's_gimel', 'a_gimel', 'y_gimel',
+        'imagenet100_gimel', 'imagenet10_gimel', 'imagenet1_gimel', 'imagenet100_alef', 'imagenet100_bet', 'imagenet100_dalet',
+        'imagenet100+konkleiid_gimel', 'imagenet10+konkleiid_gimel', 'imagenet1+konkleiid_gimel',
+        'say+konkleiid_gimel', 's+konkleiid_gimel', 'a+konkleiid_gimel', 'y+konkleiid_gimel',
+        'say+konklenonvehicle_gimel', 's+konklenonvehicle_gimel', 'a+konklenonvehicle_gimel', 'y+konklenonvehicle_gimel',
+        'konkleiid_gimel', 'konklenonvehicle_gimel'
         ]
 
     return available_models
@@ -21,35 +24,30 @@ def load_model(gpt_name):
     # check
     assert gpt_name in get_available_models(), "Unrecognized GPT model!"
 
-    # mapper maps gpt model name to corresponding vq encoder model name
-    mapper = {
-        "say_gimel": "say_32x32_8192",
-        "s_gimel": "s_32x32_8192",
-        "a_gimel": "a_32x32_8192",
-        "y_gimel": "y_32x32_8192",
-        "imagenet100_alef": "imagenet_16x16_16384",
-        "imagenet100_bet": "imagenet_16x16_16384",
-        "imagenet100_dalet": "imagenet_16x16_16384",
-        "imagenet100_gimel": "imagenet_16x16_16384",
-        "imagenet10_gimel": "imagenet_16x16_16384",
-        "imagenet1_gimel": "imagenet_16x16_16384"
-    }
+    # parse identifier
+    data, config = gpt_name.split("_")
 
     # assign corresponding vq model name
-    vq_name = mapper[gpt_name]
+    data = data.split("+")[0]
+    if data.startswith('konkle'):
+        vq_name = "say_32x32_8192"
+    elif data.startswith('imagenet'):
+        vq_name = "imagenet_16x16_16384"
+    else:
+        vq_name = data + "_32x32_8192"        
 
     # download checkpoint from hf
     gpt_model_ckpt = hf_hub_download(repo_id="eminorhan/gpt_saycam", subfolder="gpt_pretrained_models", filename=gpt_name+".pt")
     vq_config_ckpt = hf_hub_download(repo_id="eminorhan/gpt_saycam", subfolder="vqgan_pretrained_models", filename=vq_name+".yaml")
     vq_model_ckpt = hf_hub_download(repo_id="eminorhan/gpt_saycam", subfolder="vqgan_pretrained_models", filename=vq_name+".ckpt")
 
-    if gpt_name.startswith('imagenet'): 
+    if data.startswith('imagenet'): 
         vocab_size, block_size = 16384, 255 
     else:
         vocab_size, block_size = 8192, 1023 
 
     # load gpt model
-    gpt_config = gptmodel.__dict__['GPT_gimel'](vocab_size, block_size)
+    gpt_config = gptmodel.__dict__['GPT_'+config](vocab_size, block_size)
     gpt_model = gptmodel.GPT(gpt_config)
 
     gpt_model_ckpt = torch.load(gpt_model_ckpt, map_location='cpu')
@@ -100,11 +98,13 @@ def generate_images_freely(gpt_model, vq_model, n_samples=1):
 
     return x
 
-def generate_images_from_half(gpt_model, vq_model, img_dir, n_imgs=1, n_samples_per_img=2):
+def generate_images_from_half(gpt_model, vq_model, img_dir, n_imgs=1, n_samples_per_img=2, seed=1):
     from torchvision.transforms import Compose, Resize, CenterCrop, ToTensor
     from torchvision.datasets import ImageFolder
     from torch.utils.data import DataLoader
 
+    set_seed(seed)
+    
     device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
     gpt_model.to(device)
@@ -138,7 +138,7 @@ def generate_images_from_half(gpt_model, vq_model, img_dir, n_imgs=1, n_samples_
     img_size, vq_dim = int(np.sqrt(gpt_model.model_config.block_size + 1)), 256
     z = vq_model.quantize.get_codebook_entry(s, (n_samples, img_size, img_size, vq_dim))
     x = vq_model.decode(z)
-    x[:, :, 126, :] = 1  # draw a line in the middle of image
+    x[:, :, 126, :] = 0  # draw a line in the middle of image
 
     return x
 

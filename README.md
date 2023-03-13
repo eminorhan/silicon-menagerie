@@ -18,10 +18,10 @@ This is a stand-alone repository to facilitate the use of all models I have trai
 Model names are specified in the format `x_y_z`, where `x` is the self-supervised learning (SSL) algorithm used to train the model, `y` is the data used for training the model, and `z` is the model architecture:
 
 * `x` can be one of `dino`, `mugs`, or `mae`
-* `y` can be one of `say`, `s`, `a`, `y`, `imagenet100`, `imagenet10`, `imagenet3`, or `imagenet1`
+* `y` can be one of `say`, `s`, `a`, `y`, `imagenet100`, `imagenet10`, `imagenet1`, `kinetics-200h`, `ego4d-200h`
 * `z` can be one of `resnext50`, `vitb14`, `vitl16`, `vitb16`, `vits16` 
 
-Here, `imagenet100`, `imagenet10`, `imagenet3`, and `imagenet1` are the full ImageNet training set and its subsets (10%, 3%, and 1% of the full training set, respectively). DINO models were trained with code from [this repository](https://github.com/eminorhan/dino), Mugs models were trained with code from [this repository](https://github.com/eminorhan/mugs), and the MAE models were trained with code from [this repository](https://github.com/eminorhan/mae). Training logs for all models can be found in the [`logs`](https://github.com/eminorhan/silicon-menagerie/tree/master/logs) folder. Please note that not all possible combinations are available at this time; you can see a list of all available models by running:
+Here, `imagenet100`, `imagenet10`, `imagenet1` are the full ImageNet training set and its subsets (10% and 1% of the full training set, respectively); `kinetics-200h` and `ego4d-200h` are 200-hour subsets of the Kinetics-700 and Ego4D datasets. DINO models were trained with code from [this repository](https://github.com/eminorhan/dino), Mugs models were trained with code from [this repository](https://github.com/eminorhan/mugs), and the MAE models were trained with code from [this repository](https://github.com/eminorhan/mae). Training logs for all models can be found in the [`logs`](https://github.com/eminorhan/silicon-menagerie/tree/master/logs) folder. Please note that not all possible combinations are available at this time; you can see a list of all available models by running:
 
 ```python
 >>> print(utils.get_available_models())
