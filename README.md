@@ -2,7 +2,7 @@
 
 > *... come ye, assemble all the beasts of the field ...* &ndash; Jeremiah 12:9
 
-This is a stand-alone repository to facilitate the use of all models I have trained on SAYCam (and more!). It is still in progress. More models and further functionalities will be forthcoming shortly. The models are all hosted on [Huggingface](https://huggingface.co/eminorhan), which, to my not inconsiderable surprise, seems to offer free unlimited storage for models and datasets (thanks Huggingface!).
+This is a stand-alone repository to facilitate the use of all models I have trained on SAYCam (and more!). It is still in progress. More models and further functionalities will be forthcoming shortly. The models are all hosted on [Huggingface](https://huggingface.co/eminorhan), which, to my not inconsiderable astonishment, seems to offer free unlimited storage for models and datasets (thanks Huggingface!).
 
 ## What you need:
 * A reasonably recent version of PyTorch and torchvision (I have `pytorch==1.13.1` and `torchvision==0.14.1`).
@@ -21,7 +21,7 @@ Model names are specified in the format `x_y_z`, where `x` is the self-supervise
 * `y` can be one of `say`, `s`, `a`, `y`, `imagenet100`, `imagenet10`, `imagenet1`, `kinetics-200h`, `ego4d-200h`
 * `z` can be one of `resnext50`, `vitb14`, `vitl16`, `vitb16`, `vits16` 
 
-Here, `imagenet100`, `imagenet10`, `imagenet1` are the full ImageNet training set and its subsets (10% and 1% of the full training set, respectively); `kinetics-200h` and `ego4d-200h` are 200-hour subsets of the Kinetics-700 and Ego4D datasets. DINO models were trained with code from [this repository](https://github.com/eminorhan/dino), Mugs models were trained with code from [this repository](https://github.com/eminorhan/mugs), and the MAE models were trained with code from [this repository](https://github.com/eminorhan/mae). Training logs for all models can be found in the [`logs`](https://github.com/eminorhan/silicon-menagerie/tree/master/logs) folder. Please note that not all possible combinations are available at this time; you can see a list of all available models by running:
+Here, `imagenet100`, `imagenet10`, `imagenet1` are the full ImageNet training set and its subsets (10% and 1% of the full training set, respectively); `kinetics-200h` and `ego4d-200h` are 200-hour subsets of the Kinetics-700 and Ego4D video datasets. DINO models were trained with code from [this repository](https://github.com/eminorhan/dino), Mugs models were trained with code from [this repository](https://github.com/eminorhan/mugs), and the MAE models were trained with code from [this repository](https://github.com/eminorhan/mae). Training logs for all models can be found in the [`logs`](https://github.com/eminorhan/silicon-menagerie/tree/master/logs) folder. Please note that not all possible combinations are available at this time; you can see a list of all available models by running:
 
 ```python
 >>> print(utils.get_available_models())
@@ -43,7 +43,7 @@ This will download the corresponding pretrained checkpoint, store it in cache, b
 Please see the example code [here](https://github.com/eminorhan/dino/blob/master/eval_linear.py) to find out how to attach a linear classifier head to a pretrained model (either a resnext or a ViT model), and train or finetune it on a downstream classification task.
 
 ### Visualizing the attention heads
-I also include here some bare bones functionality to visualize the attention heads of the transformer models. All you need to do is something along the lines of:
+I also include here some bare bones functionality to visualize the attention heads of the transformer models given an image. All you need to do is something along the lines of:
 
 ```python
 import torch
@@ -68,7 +68,7 @@ You can find more examples in the [atts](https://github.com/eminorhan/silicon-me
 
 ## Generative image models (VQGAN-GPT)
 
-These are generative models that can be used to generate images. For these models, we first learn a discrete codebook with a [VQ-GAN](https://github.com/CompVis/taming-transformers) model and then encode the video frames as 32x32 integers from this codebook. These discretized and spatially downsampled frames are then fed into a GPT model to learn a prior over the frames. 
+These are generative models that can be used to generate images. For these models, we first learn a discrete codebook with a [VQ-GAN](https://github.com/CompVis/taming-transformers) model and then encode the video frames as 32x32 integers from this codebook. These discretized and spatially downsampled frames are then fed into a GPT model to learn a prior over the frames. The GPT models were trained with code from [this repository](https://github.com/eminorhan/vqgan-gpt).
 
 ### Loading the models
 Loading a pretrained VQGAN-GPT model is extremely easy:
@@ -84,7 +84,7 @@ Here, `'say_gimel'` is the model identifier, `vq_model` is the VQ codebook part 
 * `x` can be one of `say`, `s`, `a`, `y`, `imagenet100`, `imagenet10`, or `imagenet1`
 * `y` can be one of `alef`, `bet`, `gimel`, `dalet`
 
-Here, `alef`, `bet`, `gimel`, `dalet` refer to model configurations with different sizes, `dalet` being the largest model (1.5B params) and  `alef` being the smallest one (110M params). You can find the detailed model specifications in [this file](https://github.com/eminorhan/silicon-menagerie/blob/master/gptmodel.py). Please note that not all possible combinations are available at this time; you can see a list of all available models by running:
+Here, `alef`, `bet`, `gimel`, `dalet` refer to model configurations with different sizes, `dalet` being the largest model (1.5B params) and `alef` being the smallest one (110M params). You can find the detailed model specifications in [this file](https://github.com/eminorhan/silicon-menagerie/blob/master/gptmodel.py). Please note that not all possible combinations are available at this time; you can see a list of all available models by running:
 
 ```python
 >>> print(gpt_utils.get_available_models())

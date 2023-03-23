@@ -15,6 +15,7 @@ def get_available_models():
         'imagenet100+konkleiid_gimel', 'imagenet10+konkleiid_gimel', 'imagenet1+konkleiid_gimel',
         'say+konkleiid_gimel', 's+konkleiid_gimel', 'a+konkleiid_gimel', 'y+konkleiid_gimel',
         'say+konklenonvehicle_gimel', 's+konklenonvehicle_gimel', 'a+konklenonvehicle_gimel', 'y+konklenonvehicle_gimel',
+        'imagenet100+konklenonvehicle_gimel', 'imagenet10+konklenonvehicle_gimel', 'imagenet1+konklenonvehicle_gimel',
         'konkleiid_gimel', 'konklenonvehicle_gimel'
         ]
 

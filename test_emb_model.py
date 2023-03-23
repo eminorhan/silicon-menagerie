@@ -14,7 +14,7 @@ from utils import preprocess_image, visualize_attentions
 img_size = 1400  # nice and big
 patch_size = 14
 
-for i in range(32):
+for i in [19]:
     img_path = "imgs/img_{}.jpg".format(i)
     save_name = model_name + '_' + img_path.split("/")[-1]
     img = preprocess_image(img_path, img_size)
