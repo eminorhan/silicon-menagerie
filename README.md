@@ -86,7 +86,7 @@ Here, `'say_gimel'` is the model identifier, `vq_model` is the VQ codebook part 
 
 Here, `alef`, `bet`, `gimel`, `dalet` refer to model configurations with different sizes, `dalet` being the largest model (1.5B params) and `alef` being the smallest one (110M params). You can find the detailed model specifications in [this file](https://github.com/eminorhan/silicon-menagerie/blob/master/gptmodel.py). `konkleiid` and `konklenonvehicle` are subsets of the Konkle objects dataset (the first is an *iid* half split of the dataset, the second one includes all *nonvehicle* classes in the dataset). 
 
-In addition, you can also load models finetuned on these two Konkle datasets by adding them to the `x` string with a `+` sign: *e.g.* `'say+konkleiid_gimel'` is a `gimel` sized model (~730M parameters) pretrained on `say` (all of SAYCam) and then finetuned on `konkleiid`.
+In addition, you can also load models finetuned on these two Konkle datasets by concatenating them to the `x` string with a `+` sign: *e.g.* `'say+konkleiid_gimel'` is a `gimel` sized model (~730M parameters) pretrained on `say` (all of SAYCam) and then finetuned on `konkleiid`.
 
 Please note that not all possible `x_y` combinations are available at this time; you can see a list of all available models by running:
 
