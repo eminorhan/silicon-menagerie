@@ -199,9 +199,9 @@ def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.
     nh = attentions.shape[1]  # number of heads
 
     # we keep only the output patch attention (cls token)
-    # attentions = attentions[0, :, 0, 1:].reshape(nh, -1)
-    attentions[0, :, 100, 100] = -1 
-    attentions = attentions[0, :, 100, 1:].reshape(nh, -1)
+    attentions = attentions[0, :, 0, 1:].reshape(nh, -1)
+    # attentions[0, :, 100, 100] = -1 
+    # attentions = attentions[0, :, 100, 1:].reshape(nh, -1)
 
     if threshold is not None:
         # thresholded attention maps: we keep only a certain percentage of the mass

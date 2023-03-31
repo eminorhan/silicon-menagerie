@@ -1,0 +1,516 @@
+Namespace(data_path='/vast/eo41/data/konkle_iid/train', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=16, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_finetuned_models', save_prefix='scratch_gimel_konkle_iid', save_freq=50, gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=8, lr=0.0003, optimizer='Adam', epochs=1000, resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/vast/eo41/data/konkle_iid/train', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=16, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_finetuned_models', save_prefix='scratch_gimel_konkle_iid', save_freq=50, gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=8, lr=0.0003, optimizer='Adam', epochs=1000, resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+model:
+  base_learning_rate: 1.0e-05
+  params:
+    ddconfig:
+      attn_resolutions:
+      - 32
+      ch: 128
+      ch_mult:
+      - 1
+      - 1
+      - 2
+      - 4
+      double_z: false
+      dropout: 0.0
+      in_channels: 3
+      num_res_blocks: 2
+      out_ch: 3
+      resolution: 256
+      z_channels: 256
+    embed_dim: 256
+    lossconfig:
+      params:
+        codebook_weight: 1.0
+        disc_conditional: false
+        disc_in_channels: 3
+        disc_start: 100001
+        disc_weight: 0.2
+      target: vqloss.VQLPIPSWithDiscriminator
+    n_embed: 8192
+  target: vqmodel.VQModel
+
+Working with z of shape (1, 256, 32, 32) = 262144 dimensions.
+/scratch/eo41/miniconda3/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/scratch/eo41/miniconda3/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+loaded pretrained LPIPS loss from taming/modules/autoencoder/lpips/vgg.pth
+VQLPIPSWithDiscriminator running with hinge loss.
+Data loaded: dataset contains 2121 images, and takes 133 training iterations per epoch.
+Number of parameters: 730671360
+Running on 2 GPUs total
+=> no checkpoint loaded, will train from scratch
+/scratch/eo41/miniconda3/lib/python3.10/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.10/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+Epoch: 0 | Training loss: 6.221367029319132 | Elapsed time: 381.5729413032532
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_finetuned_models/scratch_gimel_konkle_iid_0.pt
+Epoch: 1 | Training loss: 5.536671910967145 | Elapsed time: 378.09746980667114
+Epoch: 2 | Training loss: 5.318350028274651 | Elapsed time: 378.1693060398102
+Epoch: 3 | Training loss: 5.169569153534739 | Elapsed time: 378.1011700630188
+Epoch: 4 | Training loss: 5.050405380421115 | Elapsed time: 378.13276171684265
+Epoch: 5 | Training loss: 4.909939540059943 | Elapsed time: 378.1178367137909
+Epoch: 6 | Training loss: 4.856190729858284 | Elapsed time: 378.2616183757782
+Epoch: 7 | Training loss: 4.783641922742801 | Elapsed time: 378.1973967552185
+Epoch: 8 | Training loss: 4.714092873092881 | Elapsed time: 378.34348130226135
+Epoch: 9 | Training loss: 4.683085559902334 | Elapsed time: 378.35965275764465
+Epoch: 10 | Training loss: 4.61887128191783 | Elapsed time: 378.44305396080017
+Epoch: 11 | Training loss: 4.610569466325574 | Elapsed time: 378.4105658531189
+Epoch: 12 | Training loss: 4.60728333050147 | Elapsed time: 378.41433095932007
+Epoch: 13 | Training loss: 4.613775213858239 | Elapsed time: 378.4719157218933
+Epoch: 14 | Training loss: 4.578194969578793 | Elapsed time: 378.5690383911133
+Epoch: 15 | Training loss: 4.475643027097659 | Elapsed time: 378.6599781513214
+Epoch: 16 | Training loss: 4.4897550227946805 | Elapsed time: 378.6929180622101
+Epoch: 17 | Training loss: 4.478471515770245 | Elapsed time: 378.595805644989
+Epoch: 18 | Training loss: 4.403081668050666 | Elapsed time: 378.72429370880127
+Epoch: 19 | Training loss: 4.405722017575028 | Elapsed time: 378.931921005249
+Epoch: 20 | Training loss: 4.376398337514777 | Elapsed time: 378.68488574028015
+Epoch: 21 | Training loss: 4.350627404406555 | Elapsed time: 378.7235770225525
+Epoch: 22 | Training loss: 4.324800573793569 | Elapsed time: 378.74304270744324
+Epoch: 23 | Training loss: 4.340876932430985 | Elapsed time: 378.6586515903473
+Epoch: 24 | Training loss: 4.302791552436083 | Elapsed time: 378.70456290245056
+Epoch: 25 | Training loss: 4.2275873324028534 | Elapsed time: 378.6469168663025
+Epoch: 26 | Training loss: 4.23893071655044 | Elapsed time: 378.6059584617615
+Epoch: 27 | Training loss: 4.188457804514949 | Elapsed time: 378.5507867336273
+Epoch: 28 | Training loss: 4.180534611967273 | Elapsed time: 378.58671045303345
+Epoch: 29 | Training loss: 4.152586047810719 | Elapsed time: 378.54464507102966
+Epoch: 30 | Training loss: 4.131385647264638 | Elapsed time: 378.33222675323486
+Epoch: 31 | Training loss: 4.123089326055426 | Elapsed time: 378.3648684024811
+Epoch: 32 | Training loss: 4.131598454669006 | Elapsed time: 378.49661564826965
+Epoch: 33 | Training loss: 4.1088089727817625 | Elapsed time: 378.3322641849518
+Epoch: 34 | Training loss: 3.993216387311319 | Elapsed time: 378.2785129547119
+Epoch: 35 | Training loss: 4.0806977892280525 | Elapsed time: 378.294118642807
+Epoch: 36 | Training loss: 4.0110895490287835 | Elapsed time: 378.2845468521118
+Epoch: 37 | Training loss: 4.032228469848633 | Elapsed time: 378.43916511535645
+Epoch: 38 | Training loss: 3.9609064786954034 | Elapsed time: 378.18374514579773
+Epoch: 39 | Training loss: 3.9627006394522533 | Elapsed time: 378.2668147087097
+Epoch: 40 | Training loss: 3.9739965585837687 | Elapsed time: 378.2371735572815
+Epoch: 41 | Training loss: 3.9391264987171146 | Elapsed time: 378.28911876678467
+Epoch: 42 | Training loss: 3.895473132456156 | Elapsed time: 378.2313120365143
+Epoch: 43 | Training loss: 3.9423435021163824 | Elapsed time: 378.19870162010193
+Epoch: 44 | Training loss: 3.8573671283578514 | Elapsed time: 378.18878388404846
+Epoch: 45 | Training loss: 3.901794412082299 | Elapsed time: 378.14765548706055
+Epoch: 46 | Training loss: 3.905330735041683 | Elapsed time: 378.20234084129333
+Epoch: 47 | Training loss: 3.8357597544677278 | Elapsed time: 378.1435594558716
+Epoch: 48 | Training loss: 3.901426383427211 | Elapsed time: 378.12871861457825
+Epoch: 49 | Training loss: 3.8220166998698297 | Elapsed time: 378.1115140914917
+Epoch: 50 | Training loss: 3.8283311155505646 | Elapsed time: 378.1297233104706
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_finetuned_models/scratch_gimel_konkle_iid_50.pt
+Epoch: 51 | Training loss: 3.836244522180772 | Elapsed time: 378.16693902015686
+Epoch: 52 | Training loss: 3.8400124983679977 | Elapsed time: 378.0921530723572
+Epoch: 53 | Training loss: 3.867507204973608 | Elapsed time: 378.0398540496826
+Epoch: 54 | Training loss: 3.7771548543657576 | Elapsed time: 378.1902024745941
+Epoch: 55 | Training loss: 3.7903426320929277 | Elapsed time: 378.24177861213684
+Epoch: 56 | Training loss: 3.7487206530750248 | Elapsed time: 378.1542818546295
+Epoch: 57 | Training loss: 3.7396621686175355 | Elapsed time: 378.1637849807739
+Epoch: 58 | Training loss: 3.740702259809451 | Elapsed time: 378.18227672576904
+Epoch: 59 | Training loss: 3.7205091042626175 | Elapsed time: 378.0721700191498
+Epoch: 60 | Training loss: 3.7406092407111835 | Elapsed time: 378.0826094150543
+Epoch: 61 | Training loss: 3.6950465969573285 | Elapsed time: 378.1343972682953
+Epoch: 62 | Training loss: 3.696657119837022 | Elapsed time: 378.1367971897125
+Epoch: 63 | Training loss: 3.642118597389164 | Elapsed time: 378.1349630355835
+Epoch: 64 | Training loss: 3.6646737173983923 | Elapsed time: 378.2098138332367
+Epoch: 65 | Training loss: 3.6020614079066684 | Elapsed time: 378.1548581123352
+Epoch: 66 | Training loss: 3.586947650837719 | Elapsed time: 378.08829617500305
+Epoch: 67 | Training loss: 3.650068241850774 | Elapsed time: 378.12474846839905
+Epoch: 68 | Training loss: 3.6153652130213 | Elapsed time: 378.1288003921509
+Epoch: 69 | Training loss: 3.614848965092709 | Elapsed time: 378.2295026779175
+Epoch: 70 | Training loss: 3.588346967123505 | Elapsed time: 378.07390880584717
+Epoch: 71 | Training loss: 3.572077066378486 | Elapsed time: 378.05754113197327
+Epoch: 72 | Training loss: 3.593542276468492 | Elapsed time: 378.06126976013184
+Epoch: 73 | Training loss: 3.50323286092371 | Elapsed time: 378.00222158432007
+Epoch: 74 | Training loss: 3.510100613859363 | Elapsed time: 377.9919571876526
+Epoch: 75 | Training loss: 3.5489763621997117 | Elapsed time: 378.07586789131165
+Epoch: 76 | Training loss: 3.4680866119556857 | Elapsed time: 378.04755783081055
+Epoch: 77 | Training loss: 3.468321705223026 | Elapsed time: 377.9986448287964
+Epoch: 78 | Training loss: 3.46138800714249 | Elapsed time: 377.9614906311035
+Epoch: 79 | Training loss: 3.444462846096297 | Elapsed time: 378.0405750274658
+Epoch: 80 | Training loss: 3.3741800498245356 | Elapsed time: 378.00703406333923
+Epoch: 81 | Training loss: 3.3959135453503833 | Elapsed time: 378.038542509079
+Epoch: 82 | Training loss: 3.3892717200114313 | Elapsed time: 377.968003988266
+Epoch: 83 | Training loss: 3.359716110659721 | Elapsed time: 378.0076677799225
+Epoch: 84 | Training loss: 3.358177989945376 | Elapsed time: 378.0720477104187
+Epoch: 85 | Training loss: 3.3057677978859807 | Elapsed time: 377.9519624710083
+Epoch: 86 | Training loss: 3.300154531808724 | Elapsed time: 378.18490076065063
+Epoch: 87 | Training loss: 3.237324413500334 | Elapsed time: 378.05785751342773
+Epoch: 88 | Training loss: 3.2760509476625828 | Elapsed time: 378.0284502506256
+Epoch: 89 | Training loss: 3.250709809755024 | Elapsed time: 378.07206296920776
+Epoch: 90 | Training loss: 3.2424007681079376 | Elapsed time: 378.00614857673645
+Epoch: 91 | Training loss: 3.2320889010465237 | Elapsed time: 378.0093741416931
+Epoch: 92 | Training loss: 3.204506954752413 | Elapsed time: 377.9794659614563
+Epoch: 93 | Training loss: 3.2124203577973787 | Elapsed time: 377.9634883403778
+Epoch: 94 | Training loss: 3.199001692291489 | Elapsed time: 377.9955358505249
+Epoch: 95 | Training loss: 3.1519831284544524 | Elapsed time: 378.0236337184906
+Epoch: 96 | Training loss: 3.2338249557896663 | Elapsed time: 377.9555194377899
+Epoch: 97 | Training loss: 3.1366998557757615 | Elapsed time: 377.9191098213196
+Epoch: 98 | Training loss: 3.155778804219755 | Elapsed time: 377.9563443660736
+Epoch: 99 | Training loss: 3.0754005156065287 | Elapsed time: 377.90000224113464
+Epoch: 100 | Training loss: 3.1003938456227007 | Elapsed time: 377.9292483329773
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_finetuned_models/scratch_gimel_konkle_iid_100.pt
+Epoch: 101 | Training loss: 3.1100885921851136 | Elapsed time: 377.96657276153564
+Epoch: 102 | Training loss: 3.0747581505237664 | Elapsed time: 377.9083399772644
+Epoch: 103 | Training loss: 3.1014734228750815 | Elapsed time: 378.05221939086914
+Epoch: 104 | Training loss: 3.0497107308610043 | Elapsed time: 377.9988534450531
+Epoch: 105 | Training loss: 3.001450929426609 | Elapsed time: 378.04889607429504
+Epoch: 106 | Training loss: 3.0640451155210795 | Elapsed time: 378.07627391815186
+Epoch: 107 | Training loss: 3.0065744532678362 | Elapsed time: 378.1231098175049
+Epoch: 108 | Training loss: 3.0526116216989387 | Elapsed time: 378.0936450958252
+Epoch: 109 | Training loss: 3.0032725603060615 | Elapsed time: 378.1471607685089
+Epoch: 110 | Training loss: 3.009697030361434 | Elapsed time: 378.100465297699
+Epoch: 111 | Training loss: 2.9747711886140635 | Elapsed time: 378.0805892944336
+Epoch: 112 | Training loss: 2.957736721612457 | Elapsed time: 378.14621806144714
+Epoch: 113 | Training loss: 2.919914620263236 | Elapsed time: 378.1265654563904
+Epoch: 114 | Training loss: 2.937008839800842 | Elapsed time: 378.1857159137726
+Epoch: 115 | Training loss: 2.9339616074597927 | Elapsed time: 378.2640051841736
+Epoch: 116 | Training loss: 2.9285959767219714 | Elapsed time: 378.14311051368713
+Epoch: 117 | Training loss: 2.9271114248978463 | Elapsed time: 378.19171595573425
+Epoch: 118 | Training loss: 2.914605076151683 | Elapsed time: 378.1761546134949
+Epoch: 119 | Training loss: 2.919692505571179 | Elapsed time: 378.14500188827515
+Epoch: 120 | Training loss: 2.8572977073210524 | Elapsed time: 378.25875449180603
+Epoch: 121 | Training loss: 2.875286030590086 | Elapsed time: 378.0917248725891
+Epoch: 122 | Training loss: 2.8573826524548065 | Elapsed time: 378.15426993370056
+Epoch: 123 | Training loss: 2.8400240141646305 | Elapsed time: 378.2428529262543
+Epoch: 124 | Training loss: 2.819226627063034 | Elapsed time: 378.14700174331665
+Epoch: 125 | Training loss: 2.8300868765752116 | Elapsed time: 378.14182782173157
+Epoch: 126 | Training loss: 2.85162211360788 | Elapsed time: 378.141010761261
+Epoch: 127 | Training loss: 2.804409512899872 | Elapsed time: 378.13584661483765
+Epoch: 128 | Training loss: 2.8011151919687602 | Elapsed time: 378.11239671707153
+Epoch: 129 | Training loss: 2.810330143548492 | Elapsed time: 378.350768327713
+Epoch: 130 | Training loss: 2.8125549671345187 | Elapsed time: 378.1684730052948
+Epoch: 131 | Training loss: 2.7905348333201014 | Elapsed time: 378.1214232444763
+Epoch: 132 | Training loss: 2.8099155945885452 | Elapsed time: 378.167040348053
+Epoch: 133 | Training loss: 2.768674153134339 | Elapsed time: 378.1412789821625
+Epoch: 134 | Training loss: 2.784266756889515 | Elapsed time: 378.16738200187683
+Epoch: 135 | Training loss: 2.7886061946252236 | Elapsed time: 378.19002652168274
+Epoch: 136 | Training loss: 2.7468452139904627 | Elapsed time: 378.13738346099854
+Epoch: 137 | Training loss: 2.748931452743989 | Elapsed time: 378.11166858673096
+Epoch: 138 | Training loss: 2.7471139350331817 | Elapsed time: 378.1211769580841
+Epoch: 139 | Training loss: 2.7276205030599034 | Elapsed time: 378.0826416015625
+Epoch: 140 | Training loss: 2.7309025526046753 | Elapsed time: 378.1683564186096
+Epoch: 141 | Training loss: 2.7027142675299394 | Elapsed time: 378.3034963607788
+Epoch: 142 | Training loss: 2.7133900814486624 | Elapsed time: 378.2318305969238
+Epoch: 143 | Training loss: 2.659844420009986 | Elapsed time: 378.14044737815857
+Epoch: 144 | Training loss: 2.7293737275259837 | Elapsed time: 378.048868894577
+Epoch: 145 | Training loss: 2.6795139178297576 | Elapsed time: 378.1817030906677
+Epoch: 146 | Training loss: 2.673763825481099 | Elapsed time: 378.0095226764679
+Epoch: 147 | Training loss: 2.6392652253459272 | Elapsed time: 378.0865812301636
+Epoch: 148 | Training loss: 2.679800796329527 | Elapsed time: 378.10016894340515
+Epoch: 149 | Training loss: 2.667767252240862 | Elapsed time: 378.0990436077118
+Epoch: 150 | Training loss: 2.6889751307050087 | Elapsed time: 378.0743033885956
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_finetuned_models/scratch_gimel_konkle_iid_150.pt
+Epoch: 151 | Training loss: 2.6407763617379323 | Elapsed time: 378.1280732154846
+Epoch: 152 | Training loss: 2.626200172237884 | Elapsed time: 378.06004309654236
+Epoch: 153 | Training loss: 2.6594949270549573 | Elapsed time: 378.07080078125
+Epoch: 154 | Training loss: 2.649442299864346 | Elapsed time: 378.141713142395
+Epoch: 155 | Training loss: 2.623232515234696 | Elapsed time: 378.11586713790894
+Epoch: 156 | Training loss: 2.6676715235961113 | Elapsed time: 378.06611037254333
+Epoch: 157 | Training loss: 2.6612442077550673 | Elapsed time: 378.21516728401184
+Epoch: 158 | Training loss: 2.600600434425182 | Elapsed time: 378.1651191711426
+Epoch: 159 | Training loss: 2.6420292603342155 | Elapsed time: 378.2825541496277
+Epoch: 160 | Training loss: 2.597111693898538 | Elapsed time: 378.1344380378723
+Epoch: 161 | Training loss: 2.585651876334857 | Elapsed time: 378.1035313606262
+Epoch: 162 | Training loss: 2.5663291045597623 | Elapsed time: 378.0300860404968
+Epoch: 163 | Training loss: 2.6427077028088104 | Elapsed time: 378.12815952301025
+Epoch: 164 | Training loss: 2.5574377784155367 | Elapsed time: 378.12924313545227
+Epoch: 165 | Training loss: 2.58374682046417 | Elapsed time: 378.1370825767517
+Epoch: 166 | Training loss: 2.6008362546002957 | Elapsed time: 378.12009716033936
+Epoch: 167 | Training loss: 2.54337547775498 | Elapsed time: 378.1204242706299
+Epoch: 168 | Training loss: 2.5480592412159857 | Elapsed time: 378.0780372619629
+Epoch: 169 | Training loss: 2.5588412948120807 | Elapsed time: 378.1457779407501
+Epoch: 170 | Training loss: 2.5562504592694735 | Elapsed time: 378.14734411239624
+Epoch: 171 | Training loss: 2.5917222885260904 | Elapsed time: 378.0367708206177
+Epoch: 172 | Training loss: 2.531999642687633 | Elapsed time: 378.2196397781372
+Epoch: 173 | Training loss: 2.5387763224150004 | Elapsed time: 378.08568835258484
+Epoch: 174 | Training loss: 2.5566576432464716 | Elapsed time: 377.9962613582611
+Epoch: 175 | Training loss: 2.538667360642799 | Elapsed time: 378.0597698688507
+Epoch: 176 | Training loss: 2.5383818803873277 | Elapsed time: 378.06071424484253
+Epoch: 177 | Training loss: 2.5070809959468985 | Elapsed time: 378.089054107666
+Epoch: 178 | Training loss: 2.50384415361218 | Elapsed time: 378.1133940219879
+Epoch: 179 | Training loss: 2.4812230275089577 | Elapsed time: 378.16155099868774
+Epoch: 180 | Training loss: 2.4855313345901946 | Elapsed time: 378.07703709602356
+Epoch: 181 | Training loss: 2.4648315099845255 | Elapsed time: 378.36179089546204
+Epoch: 182 | Training loss: 2.502850718964311 | Elapsed time: 378.00604462623596
+Epoch: 183 | Training loss: 2.492690362428364 | Elapsed time: 378.073853969574
+Epoch: 184 | Training loss: 2.471336206995455 | Elapsed time: 378.0829448699951
+Epoch: 185 | Training loss: 2.4742901898864518 | Elapsed time: 378.1213502883911
+Epoch: 186 | Training loss: 2.488317146337122 | Elapsed time: 378.0757884979248
+Epoch: 187 | Training loss: 2.514901652371973 | Elapsed time: 378.1277184486389
+Epoch: 188 | Training loss: 2.471487526606796 | Elapsed time: 378.24102568626404
+Epoch: 189 | Training loss: 2.4622813597657625 | Elapsed time: 378.1125340461731
+Epoch: 190 | Training loss: 2.4682885031951103 | Elapsed time: 378.0022609233856
+Epoch: 191 | Training loss: 2.46038564165732 | Elapsed time: 378.11694264411926
+Epoch: 192 | Training loss: 2.4157105782874546 | Elapsed time: 378.09248638153076
+Epoch: 193 | Training loss: 2.4821880822791194 | Elapsed time: 378.23069739341736
+Epoch: 194 | Training loss: 2.4597990378401335 | Elapsed time: 378.11684346199036
+Epoch: 195 | Training loss: 2.4492008435098747 | Elapsed time: 378.12845039367676
+Epoch: 196 | Training loss: 2.414755530823442 | Elapsed time: 378.2511384487152
+Epoch: 197 | Training loss: 2.455001373040049 | Elapsed time: 378.1202025413513
+Epoch: 198 | Training loss: 2.42190120363594 | Elapsed time: 378.09009313583374
+Epoch: 199 | Training loss: 2.4198996715975882 | Elapsed time: 378.08349204063416
+Epoch: 200 | Training loss: 2.4342162026498553 | Elapsed time: 378.0586431026459
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_finetuned_models/scratch_gimel_konkle_iid_200.pt
+Epoch: 201 | Training loss: 2.4442071681632136 | Elapsed time: 378.06091809272766
+Epoch: 202 | Training loss: 2.4474537462220156 | Elapsed time: 378.14691948890686
+Epoch: 203 | Training loss: 2.4316168924919643 | Elapsed time: 378.131849527359
+Epoch: 204 | Training loss: 2.4011282732612207 | Elapsed time: 378.0805068016052
+Epoch: 205 | Training loss: 2.3887850548091687 | Elapsed time: 378.07478737831116
+Epoch: 206 | Training loss: 2.39906596778927 | Elapsed time: 378.087833404541
+Epoch: 207 | Training loss: 2.408567019871303 | Elapsed time: 378.07499742507935
+Epoch: 208 | Training loss: 2.4103816926927495 | Elapsed time: 378.0386075973511
+Epoch: 209 | Training loss: 2.4149564683885503 | Elapsed time: 378.0467689037323
+Epoch: 210 | Training loss: 2.404116077530653 | Elapsed time: 378.0438883304596
+Epoch: 211 | Training loss: 2.4019185654202797 | Elapsed time: 377.97131514549255
+Epoch: 212 | Training loss: 2.350732698476404 | Elapsed time: 378.0554609298706
+Epoch: 213 | Training loss: 2.3794298297480534 | Elapsed time: 378.1342055797577
+Epoch: 214 | Training loss: 2.329106989659761 | Elapsed time: 378.0583539009094
+Epoch: 215 | Training loss: 2.3774591881529727 | Elapsed time: 378.06654596328735
+Epoch: 216 | Training loss: 2.3919979755143475 | Elapsed time: 377.96132707595825
+Epoch: 217 | Training loss: 2.3553928047194517 | Elapsed time: 378.1124691963196
+Epoch: 218 | Training loss: 2.3968583219929744 | Elapsed time: 378.04768776893616
+Epoch: 219 | Training loss: 2.3731681377367866 | Elapsed time: 377.9637567996979
+Epoch: 220 | Training loss: 2.357836365699768 | Elapsed time: 378.0708830356598
+Epoch: 221 | Training loss: 2.363094587971393 | Elapsed time: 378.08875799179077
+Epoch: 222 | Training loss: 2.360415983020811 | Elapsed time: 377.98497700691223
+Epoch: 223 | Training loss: 2.3645464665907667 | Elapsed time: 378.0211765766144
+Epoch: 224 | Training loss: 2.3512303264517533 | Elapsed time: 377.9969382286072
+Epoch: 225 | Training loss: 2.3300171875415887 | Elapsed time: 377.93320631980896
+Epoch: 226 | Training loss: 2.3488226555343856 | Elapsed time: 377.9818785190582
+Epoch: 227 | Training loss: 2.3375783262396217 | Elapsed time: 378.0208513736725
+Epoch: 228 | Training loss: 2.352900993555112 | Elapsed time: 378.0341794490814
+Epoch: 229 | Training loss: 2.3252459791369904 | Elapsed time: 378.0721061229706
+Epoch: 230 | Training loss: 2.313836771742742 | Elapsed time: 378.0508406162262
+Epoch: 231 | Training loss: 2.306656775617958 | Elapsed time: 377.9538326263428
+Epoch: 232 | Training loss: 2.3021872276650335 | Elapsed time: 377.9106025695801
+Epoch: 233 | Training loss: 2.3416269506726946 | Elapsed time: 377.8841280937195
+Epoch: 234 | Training loss: 2.3018000699523697 | Elapsed time: 377.95600390434265
+Epoch: 235 | Training loss: 2.333637994034846 | Elapsed time: 378.0856080055237
+Epoch: 236 | Training loss: 2.3146392286271977 | Elapsed time: 378.0040829181671
+Epoch: 237 | Training loss: 2.328884328218331 | Elapsed time: 378.1282558441162
+Epoch: 238 | Training loss: 2.3198162550316717 | Elapsed time: 378.1564540863037
+Epoch: 239 | Training loss: 2.31462832321798 | Elapsed time: 378.16211199760437
+Epoch: 240 | Training loss: 2.3093815253193215 | Elapsed time: 378.0774869918823
+Epoch: 241 | Training loss: 2.3136888832077944 | Elapsed time: 378.02685832977295
+Epoch: 242 | Training loss: 2.313365529354354 | Elapsed time: 378.0392355918884
+Epoch: 243 | Training loss: 2.2758517247393617 | Elapsed time: 378.0258147716522
+Epoch: 244 | Training loss: 2.280247204285815 | Elapsed time: 378.0344579219818
+Epoch: 245 | Training loss: 2.275900639985737 | Elapsed time: 377.9744381904602
+Epoch: 246 | Training loss: 2.2833335650594613 | Elapsed time: 377.9518229961395
+Epoch: 247 | Training loss: 2.2677685138874484 | Elapsed time: 377.90752243995667
+Epoch: 248 | Training loss: 2.287725595603312 | Elapsed time: 377.98293685913086
+Epoch: 249 | Training loss: 2.263092147676568 | Elapsed time: 378.0056221485138
+Epoch: 250 | Training loss: 2.2998182074467937 | Elapsed time: 378.00986313819885
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_finetuned_models/scratch_gimel_konkle_iid_250.pt
+Epoch: 251 | Training loss: 2.2728795010344425 | Elapsed time: 377.89828300476074
+Epoch: 252 | Training loss: 2.244723596070942 | Elapsed time: 377.9794919490814
+Epoch: 253 | Training loss: 2.2559818405854073 | Elapsed time: 377.9938700199127
+Epoch: 254 | Training loss: 2.2446955379686857 | Elapsed time: 378.1753306388855
+Epoch: 255 | Training loss: 2.286112776376251 | Elapsed time: 377.99485754966736
+Epoch: 256 | Training loss: 2.288800351601794 | Elapsed time: 377.9513032436371
+Epoch: 257 | Training loss: 2.289794048868624 | Elapsed time: 378.0199897289276
+Epoch: 258 | Training loss: 2.2691150966443514 | Elapsed time: 377.9649634361267
+Epoch: 259 | Training loss: 2.253507097860924 | Elapsed time: 377.9383146762848
+Epoch: 260 | Training loss: 2.235757855544413 | Elapsed time: 378.0316410064697
+Epoch: 261 | Training loss: 2.2495095281672657 | Elapsed time: 377.9643065929413
+Epoch: 262 | Training loss: 2.2499639880388305 | Elapsed time: 377.95370507240295
+Epoch: 263 | Training loss: 2.2333940984611225 | Elapsed time: 377.9903049468994
+Epoch: 264 | Training loss: 2.249564953316423 | Elapsed time: 378.00433349609375
+Epoch: 265 | Training loss: 2.267852775136331 | Elapsed time: 377.91437005996704
+Epoch: 266 | Training loss: 2.2352822427462815 | Elapsed time: 377.89336252212524
+Epoch: 267 | Training loss: 2.2296422361431265 | Elapsed time: 377.9441795349121
+Epoch: 268 | Training loss: 2.241549745538181 | Elapsed time: 377.98005843162537
+Epoch: 269 | Training loss: 2.258252801751732 | Elapsed time: 377.92414569854736
+Epoch: 270 | Training loss: 2.243046424442664 | Elapsed time: 377.92638778686523
+Epoch: 271 | Training loss: 2.233399404618973 | Elapsed time: 377.9548978805542
+Epoch: 272 | Training loss: 2.231766497282157 | Elapsed time: 377.9665448665619
+Epoch: 273 | Training loss: 2.234176166971823 | Elapsed time: 377.95903420448303
+Epoch: 274 | Training loss: 2.229628848850279 | Elapsed time: 377.9497594833374
+Epoch: 275 | Training loss: 2.213874638528752 | Elapsed time: 377.9593997001648
+Epoch: 276 | Training loss: 2.215007822316392 | Elapsed time: 378.01645970344543
+Epoch: 277 | Training loss: 2.2154673472382966 | Elapsed time: 377.92597460746765
+Epoch: 278 | Training loss: 2.1837994693813467 | Elapsed time: 377.94139528274536
+Epoch: 279 | Training loss: 2.1906671353748868 | Elapsed time: 377.9672112464905
+Epoch: 280 | Training loss: 2.202446164941429 | Elapsed time: 378.08239936828613
+Epoch: 281 | Training loss: 2.194405756498638 | Elapsed time: 377.9179332256317
+Epoch: 282 | Training loss: 2.181479294497268 | Elapsed time: 377.99000358581543
+Epoch: 283 | Training loss: 2.204880274328074 | Elapsed time: 378.02866435050964
+Epoch: 284 | Training loss: 2.1885009340773847 | Elapsed time: 378.03840494155884
+Epoch: 285 | Training loss: 2.1981659778078697 | Elapsed time: 377.96849608421326
+Epoch: 286 | Training loss: 2.1992032241104242 | Elapsed time: 378.13206219673157
+Epoch: 287 | Training loss: 2.1681714757044515 | Elapsed time: 377.9517590999603
+Epoch: 288 | Training loss: 2.1985833214637927 | Elapsed time: 377.94772267341614
+Epoch: 289 | Training loss: 2.1492682256196676 | Elapsed time: 377.961683511734
+Epoch: 290 | Training loss: 2.1794080420544275 | Elapsed time: 377.8686547279358
+Epoch: 291 | Training loss: 2.1856952439573476 | Elapsed time: 377.88898062705994
+Epoch: 292 | Training loss: 2.177201981831314 | Elapsed time: 377.9015018939972
+Epoch: 293 | Training loss: 2.1555332976176325 | Elapsed time: 377.9191896915436
+Epoch: 294 | Training loss: 2.192863545023409 | Elapsed time: 378.00444626808167
+Epoch: 295 | Training loss: 2.1441699633921 | Elapsed time: 377.9471151828766
+Epoch: 296 | Training loss: 2.174942143877646 | Elapsed time: 378.00699830055237
+Epoch: 297 | Training loss: 2.131106412500367 | Elapsed time: 377.9582188129425
+Epoch: 298 | Training loss: 2.1783968783859025 | Elapsed time: 377.9511170387268
+Epoch: 299 | Training loss: 2.1644098489804375 | Elapsed time: 377.9227719306946
+Epoch: 300 | Training loss: 2.1616919533650676 | Elapsed time: 377.9506597518921
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_finetuned_models/scratch_gimel_konkle_iid_300.pt
+Epoch: 301 | Training loss: 2.1447890073733222 | Elapsed time: 378.13944005966187
+Epoch: 302 | Training loss: 2.1569096091994666 | Elapsed time: 378.21934628486633
+Epoch: 303 | Training loss: 2.168672892384063 | Elapsed time: 378.0554099082947
+Epoch: 304 | Training loss: 2.15090070631271 | Elapsed time: 377.9156336784363
+Epoch: 305 | Training loss: 2.1454073970479177 | Elapsed time: 377.90052247047424
+Epoch: 306 | Training loss: 2.1398763082977523 | Elapsed time: 377.89453744888306
+Epoch: 307 | Training loss: 2.1509552396329723 | Elapsed time: 377.8936228752136
+Epoch: 308 | Training loss: 2.1469863007839463 | Elapsed time: 378.0547058582306
+Epoch: 309 | Training loss: 2.1400914201162813 | Elapsed time: 378.0631630420685
+Epoch: 310 | Training loss: 2.126642019228828 | Elapsed time: 377.9422619342804
+Epoch: 311 | Training loss: 2.1502211344869515 | Elapsed time: 377.99516558647156
+Epoch: 312 | Training loss: 2.1320748481535374 | Elapsed time: 377.98650336265564
+Epoch: 313 | Training loss: 2.144585569102065 | Elapsed time: 378.07567858695984
+Epoch: 314 | Training loss: 2.1201809080023515 | Elapsed time: 377.89690113067627
+Epoch: 315 | Training loss: 2.1189703143628917 | Elapsed time: 377.92156648635864
+Epoch: 316 | Training loss: 2.1285480377369357 | Elapsed time: 378.08298325538635
+Epoch: 317 | Training loss: 2.1370738825403657 | Elapsed time: 377.9824686050415
+Epoch: 318 | Training loss: 2.1270783673551747 | Elapsed time: 377.9175007343292
+Epoch: 319 | Training loss: 2.1226898512445893 | Elapsed time: 377.9159872531891
+Epoch: 320 | Training loss: 2.1141728933592487 | Elapsed time: 377.9599595069885
+Epoch: 321 | Training loss: 2.118562836396067 | Elapsed time: 377.87977480888367
+Epoch: 322 | Training loss: 2.1045398954162025 | Elapsed time: 377.93848061561584
+Epoch: 323 | Training loss: 2.112032053165866 | Elapsed time: 377.97834491729736
+Epoch: 324 | Training loss: 2.090366348288113 | Elapsed time: 377.9129173755646
+Epoch: 325 | Training loss: 2.1159028729101768 | Elapsed time: 377.9328615665436
+Epoch: 326 | Training loss: 2.095367503345461 | Elapsed time: 377.9029908180237
+Epoch: 327 | Training loss: 2.102212809978571 | Elapsed time: 377.92276430130005
+Epoch: 328 | Training loss: 2.0980467097203532 | Elapsed time: 378.03389286994934
+Epoch: 329 | Training loss: 2.1164105270141946 | Elapsed time: 377.91018080711365
+Epoch: 330 | Training loss: 2.0782971767554606 | Elapsed time: 377.889053106308
+Epoch: 331 | Training loss: 2.111199424679118 | Elapsed time: 377.99344277381897
+Epoch: 332 | Training loss: 2.1278090934108076 | Elapsed time: 377.8997676372528
+Epoch: 333 | Training loss: 2.0772775232343745 | Elapsed time: 378.0413022041321
+Epoch: 334 | Training loss: 2.1035780727415156 | Elapsed time: 377.98772048950195
+Epoch: 335 | Training loss: 2.105775365255829 | Elapsed time: 378.0356321334839
+Epoch: 336 | Training loss: 2.096217653805152 | Elapsed time: 377.91960883140564
+Epoch: 337 | Training loss: 2.0827983823933995 | Elapsed time: 378.0974338054657
+Epoch: 338 | Training loss: 2.0771555049078807 | Elapsed time: 378.03252267837524
+Epoch: 339 | Training loss: 2.07076849166612 | Elapsed time: 377.9855320453644
+Epoch: 340 | Training loss: 2.0993274235187616 | Elapsed time: 378.1175682544708
+Epoch: 341 | Training loss: 2.0755333210292615 | Elapsed time: 377.8849220275879
+Epoch: 342 | Training loss: 2.0670995792948212 | Elapsed time: 377.98134779930115
+Epoch: 343 | Training loss: 2.0858440766657207 | Elapsed time: 377.98349618911743
+Epoch: 344 | Training loss: 2.0528501137754973 | Elapsed time: 377.8935148715973
+Epoch: 345 | Training loss: 2.078313298691484 | Elapsed time: 377.9579703807831
+Epoch: 346 | Training loss: 2.065387435425493 | Elapsed time: 377.90483045578003
+Epoch: 347 | Training loss: 2.072451271508869 | Elapsed time: 377.9173047542572
+Epoch: 348 | Training loss: 2.0715080714763556 | Elapsed time: 378.04645323753357
+Epoch: 349 | Training loss: 2.066839457454538 | Elapsed time: 378.14402985572815
+Epoch: 350 | Training loss: 2.068267658240813 | Elapsed time: 378.04294657707214
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_finetuned_models/scratch_gimel_konkle_iid_350.pt
+Epoch: 351 | Training loss: 2.0557558222820886 | Elapsed time: 377.95693016052246
+Epoch: 352 | Training loss: 2.0469028241652296 | Elapsed time: 378.00100088119507
+Epoch: 353 | Training loss: 2.0668304961426816 | Elapsed time: 377.95832777023315
+Epoch: 354 | Training loss: 2.0332562475276172 | Elapsed time: 377.98288798332214
+Epoch: 355 | Training loss: 2.0585893509083224 | Elapsed time: 377.9636800289154
+Epoch: 356 | Training loss: 2.046352461764687 | Elapsed time: 377.9427375793457
+Epoch: 357 | Training loss: 2.057603046410066 | Elapsed time: 377.96479320526123
+Epoch: 358 | Training loss: 2.0563199564926604 | Elapsed time: 378.02214908599854
+Epoch: 359 | Training loss: 2.0538824402300038 | Elapsed time: 377.97027015686035
+Epoch: 360 | Training loss: 2.0342520278199276 | Elapsed time: 377.93470215797424
+Epoch: 361 | Training loss: 2.0691611130434766 | Elapsed time: 377.94264578819275
+Epoch: 362 | Training loss: 2.060753958565848 | Elapsed time: 377.9429144859314
+Epoch: 363 | Training loss: 2.021837410173918 | Elapsed time: 377.9428997039795
+Epoch: 364 | Training loss: 2.0432205307752564 | Elapsed time: 377.9614598751068
+Epoch: 365 | Training loss: 2.0574623409070467 | Elapsed time: 377.93183994293213
+Epoch: 366 | Training loss: 2.033682098066 | Elapsed time: 377.90560817718506
+Epoch: 367 | Training loss: 2.022189344678606 | Elapsed time: 377.93742322921753
+Epoch: 368 | Training loss: 2.0729817627067852 | Elapsed time: 377.9283239841461
+Epoch: 369 | Training loss: 2.0361951858477485 | Elapsed time: 377.8788604736328
+Epoch: 370 | Training loss: 2.0010975464842375 | Elapsed time: 377.87643575668335
+Epoch: 371 | Training loss: 2.0176985810573838 | Elapsed time: 378.0963170528412
+Epoch: 372 | Training loss: 2.0214262313412545 | Elapsed time: 377.9428310394287
+Epoch: 373 | Training loss: 2.0145328197264134 | Elapsed time: 377.908563375473
+Epoch: 374 | Training loss: 2.0293188839030445 | Elapsed time: 377.87477946281433
+Epoch: 375 | Training loss: 1.9959637294138284 | Elapsed time: 377.9108991622925
+Epoch: 376 | Training loss: 2.028098277579573 | Elapsed time: 377.89308762550354
+Epoch: 377 | Training loss: 2.0069320533508646 | Elapsed time: 377.91147780418396
+Epoch: 378 | Training loss: 2.021909331020556 | Elapsed time: 377.9091658592224
+Epoch: 379 | Training loss: 2.0297301335442337 | Elapsed time: 377.9121310710907
+Epoch: 380 | Training loss: 2.0259775505926374 | Elapsed time: 377.9620931148529
+Epoch: 381 | Training loss: 2.000661963807013 | Elapsed time: 377.97648310661316
+Epoch: 382 | Training loss: 1.9941491211267341 | Elapsed time: 377.9431457519531
+Epoch: 383 | Training loss: 2.0219691498835286 | Elapsed time: 377.901255607605
+Epoch: 384 | Training loss: 1.9956708752123036 | Elapsed time: 377.89720845222473
+Epoch: 385 | Training loss: 2.0020724642545655 | Elapsed time: 377.8904745578766
+Epoch: 386 | Training loss: 2.0170158129885682 | Elapsed time: 377.9348773956299
+Epoch: 387 | Training loss: 1.9861756867932199 | Elapsed time: 377.9451344013214
+Epoch: 388 | Training loss: 1.9982833978825045 | Elapsed time: 377.9694926738739
+Epoch: 389 | Training loss: 2.013151318507087 | Elapsed time: 378.0344936847687
+Epoch: 390 | Training loss: 2.005464453446238 | Elapsed time: 377.9745626449585
+Epoch: 391 | Training loss: 1.9914142807623498 | Elapsed time: 378.00486063957214
+Epoch: 392 | Training loss: 2.0100375637972263 | Elapsed time: 377.97143030166626
+Epoch: 393 | Training loss: 1.9672517946788244 | Elapsed time: 377.94452953338623
+Epoch: 394 | Training loss: 2.015363150969484 | Elapsed time: 378.07707691192627
+Epoch: 395 | Training loss: 1.9898615197131508 | Elapsed time: 377.9298162460327
+Epoch: 396 | Training loss: 2.0020374140345063 | Elapsed time: 377.99063754081726
+Epoch: 397 | Training loss: 1.9850177872449832 | Elapsed time: 377.97952151298523
+Epoch: 398 | Training loss: 1.9886004888921751 | Elapsed time: 377.97864627838135
+Epoch: 399 | Training loss: 2.008444958163383 | Elapsed time: 377.88656878471375
+Epoch: 400 | Training loss: 1.9941506314098387 | Elapsed time: 377.99995040893555
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_finetuned_models/scratch_gimel_konkle_iid_400.pt
+Epoch: 401 | Training loss: 1.9779979904791467 | Elapsed time: 377.9239273071289
+Epoch: 402 | Training loss: 1.9898425582656287 | Elapsed time: 377.9588143825531
+Epoch: 403 | Training loss: 1.9673580639344408 | Elapsed time: 377.9607412815094
+Epoch: 404 | Training loss: 1.9995136771883284 | Elapsed time: 377.88917422294617
+Epoch: 405 | Training loss: 1.9792812802737816 | Elapsed time: 377.95900106430054
+Epoch: 406 | Training loss: 1.9529614627809453 | Elapsed time: 377.90921545028687
+Epoch: 407 | Training loss: 1.9698118258239632 | Elapsed time: 377.9062683582306
+Epoch: 408 | Training loss: 1.978990500134633 | Elapsed time: 378.0050776004791
+Epoch: 409 | Training loss: 1.97938276860947 | Elapsed time: 377.9376518726349
+Epoch: 410 | Training loss: 1.9730315683479596 | Elapsed time: 377.95563650131226
+Epoch: 411 | Training loss: 1.9712314919421547 | Elapsed time: 377.8734314441681
+Epoch: 412 | Training loss: 1.98787602356502 | Elapsed time: 377.91650676727295
+Epoch: 413 | Training loss: 1.976533852125469 | Elapsed time: 377.95907974243164
+Epoch: 414 | Training loss: 1.9542697757706606 | Elapsed time: 377.881374835968
+Epoch: 415 | Training loss: 1.964898961827271 | Elapsed time: 378.08604311943054
+Epoch: 416 | Training loss: 1.9686224846015299 | Elapsed time: 378.00092244148254
+Epoch: 417 | Training loss: 1.9567245890323381 | Elapsed time: 377.99816632270813
+Epoch: 418 | Training loss: 1.9587518353211253 | Elapsed time: 377.98352670669556
+Epoch: 419 | Training loss: 1.951266936789778 | Elapsed time: 378.08077120780945
+Epoch: 420 | Training loss: 1.9879646865945113 | Elapsed time: 377.9984767436981
+Epoch: 421 | Training loss: 1.965135327855447 | Elapsed time: 377.99525809288025
+Epoch: 422 | Training loss: 1.9698403661412405 | Elapsed time: 378.03158926963806
+Epoch: 423 | Training loss: 1.9807867627394826 | Elapsed time: 378.03855657577515
+Epoch: 424 | Training loss: 1.967328625514095 | Elapsed time: 378.2207591533661
+Epoch: 425 | Training loss: 1.969178275058144 | Elapsed time: 378.14140343666077
+Epoch: 426 | Training loss: 1.9380919978134614 | Elapsed time: 378.1644525527954
+Epoch: 427 | Training loss: 1.9843483473125256 | Elapsed time: 378.10990285873413
+Epoch: 428 | Training loss: 1.938546423625229 | Elapsed time: 378.2289571762085
+Epoch: 429 | Training loss: 1.9363236543827487 | Elapsed time: 378.3591294288635
+Epoch: 430 | Training loss: 1.9636162214709403 | Elapsed time: 378.18618655204773
+Epoch: 431 | Training loss: 1.9403300446675236 | Elapsed time: 378.1744704246521
+Epoch: 432 | Training loss: 1.9431983617911661 | Elapsed time: 378.0556447505951
+Epoch: 433 | Training loss: 1.9517762598238493 | Elapsed time: 378.07127594947815
+Epoch: 434 | Training loss: 1.9395135829323216 | Elapsed time: 378.02236247062683
+Epoch: 435 | Training loss: 1.9239242847700764 | Elapsed time: 378.0540118217468
+Epoch: 436 | Training loss: 1.9624475823309189 | Elapsed time: 378.08515191078186
+Epoch: 437 | Training loss: 1.9358976353380017 | Elapsed time: 378.15710282325745
+Epoch: 438 | Training loss: 1.9272664794348235 | Elapsed time: 378.1668384075165
+Epoch: 439 | Training loss: 1.9304651317739845 | Elapsed time: 378.1675033569336
+Epoch: 440 | Training loss: 1.91095028784042 | Elapsed time: 378.051775932312
+Epoch: 441 | Training loss: 1.9378807777748968 | Elapsed time: 378.1210181713104
+Epoch: 442 | Training loss: 1.9312769416579627 | Elapsed time: 378.0400650501251
+Epoch: 443 | Training loss: 1.914795960698809 | Elapsed time: 378.0796639919281
+Epoch: 444 | Training loss: 1.9457928264947761 | Elapsed time: 378.1751081943512
+Epoch: 445 | Training loss: 1.9541385344096593 | Elapsed time: 378.0943760871887
+Epoch: 446 | Training loss: 1.935611855714841 | Elapsed time: 378.1188225746155
+Epoch: 447 | Training loss: 1.943116743761794 | Elapsed time: 378.12947630882263
+Epoch: 448 | Training loss: 1.9316253420105554 | Elapsed time: 378.1671471595764
+Epoch: 449 | Training loss: 1.9047765848331881 | Elapsed time: 378.14777851104736
+Epoch: 450 | Training loss: 1.9028677008205788 | Elapsed time: 378.140832901001
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_finetuned_models/scratch_gimel_konkle_iid_450.pt
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 30419190 ON ga025 CANCELLED AT 2023-02-23T18:09:20 ***
+slurmstepd: error: *** STEP 30419190.0 ON ga025 CANCELLED AT 2023-02-23T18:09:20 ***

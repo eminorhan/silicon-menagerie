@@ -1,0 +1,168 @@
+Namespace(data_path='/scratch/eo41/data/saycam/Y_5fps_300s_{000000..000002}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', save_prefix='y_gimel', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/Y_5fps_300s_{000000..000002}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', save_prefix='y_gimel', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/Y_5fps_300s_{000000..000002}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', save_prefix='y_gimel', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/Y_5fps_300s_{000000..000002}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', save_prefix='y_gimel', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/Y_5fps_300s_{000000..000002}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', save_prefix='y_gimel', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/Y_5fps_300s_{000000..000002}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', save_prefix='y_gimel', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/Y_5fps_300s_{000000..000002}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', save_prefix='y_gimel', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/Y_5fps_300s_{000000..000002}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', save_prefix='y_gimel', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/Y_5fps_300s_{000000..000002}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', save_prefix='y_gimel', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/Y_5fps_300s_{000000..000002}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', save_prefix='y_gimel', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/Y_5fps_300s_{000000..000002}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', save_prefix='y_gimel', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/Y_5fps_300s_{000000..000002}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', save_prefix='y_gimel', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/Y_5fps_300s_{000000..000002}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', save_prefix='y_gimel', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/Y_5fps_300s_{000000..000002}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', save_prefix='y_gimel', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/Y_5fps_300s_{000000..000002}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', save_prefix='y_gimel', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/Y_5fps_300s_{000000..000002}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/y_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', save_prefix='y_gimel', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+model:
+  base_learning_rate: 1.0e-05
+  params:
+    ddconfig:
+      attn_resolutions:
+      - 32
+      ch: 128
+      ch_mult:
+      - 1
+      - 1
+      - 2
+      - 4
+      double_z: false
+      dropout: 0.0
+      in_channels: 3
+      num_res_blocks: 2
+      out_ch: 3
+      resolution: 256
+      z_channels: 256
+    embed_dim: 256
+    lossconfig:
+      params:
+        codebook_weight: 1.0
+        disc_conditional: false
+        disc_in_channels: 3
+        disc_start: 100001
+        disc_weight: 0.2
+      target: vqloss.VQLPIPSWithDiscriminator
+    n_embed: 8192
+  target: vqmodel.VQModel
+
+Working with z of shape (1, 256, 32, 32) = 262144 dimensions.
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+loaded pretrained LPIPS loss from taming/modules/autoencoder/lpips/vgg.pth
+VQLPIPSWithDiscriminator running with hinge loss.
+Number of parameters: 730671360
+Running on 16 GPUs total
+=> no checkpoint loaded, will train from scratch
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/envs/llm/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+Iteration: 0 | Training loss: 9.316059112548828
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/y_gimel_0.pt
+Iteration: 10000 | Training loss: 5.527423759746552
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/y_gimel_10000.pt
+Iteration: 20000 | Training loss: 4.884146058940887
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/y_gimel_20000.pt
+Iteration: 30000 | Training loss: 4.6967807245969775
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/y_gimel_30000.pt
+Iteration: 40000 | Training loss: 4.584212138175964
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/y_gimel_40000.pt
+Iteration: 50000 | Training loss: 4.498861210989952
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/y_gimel_50000.pt
+Iteration: 60000 | Training loss: 4.439975436353683
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/y_gimel_60000.pt
+Iteration: 70000 | Training loss: 4.385554709815979
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/y_gimel_70000.pt
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 29645373 ON ga025 CANCELLED AT 2023-02-02T13:40:23 ***
+slurmstepd: error: *** STEP 29645373.0 ON ga025 CANCELLED AT 2023-02-02T13:40:23 ***

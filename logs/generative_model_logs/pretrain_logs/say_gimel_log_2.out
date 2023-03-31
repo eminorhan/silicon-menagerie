@@ -1,0 +1,158 @@
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=10000, lr=0.0003, optimizer='Adam', resume='/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+model:
+  base_learning_rate: 1.0e-05
+  params:
+    ddconfig:
+      attn_resolutions:
+      - 32
+      ch: 128
+      ch_mult:
+      - 1
+      - 1
+      - 2
+      - 4
+      double_z: false
+      dropout: 0.0
+      in_channels: 3
+      num_res_blocks: 2
+      out_ch: 3
+      resolution: 256
+      z_channels: 256
+    embed_dim: 256
+    lossconfig:
+      params:
+        codebook_weight: 1.0
+        disc_conditional: false
+        disc_in_channels: 3
+        disc_start: 100001
+        disc_weight: 0.2
+      target: vqloss.VQLPIPSWithDiscriminator
+    n_embed: 8192
+  target: vqmodel.VQModel
+
+Working with z of shape (1, 256, 32, 32) = 262144 dimensions.
+loaded pretrained LPIPS loss from taming/modules/autoencoder/lpips/vgg.pth
+VQLPIPSWithDiscriminator running with hinge loss.
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/utils/data/dataloader.py:478: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 4, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+Number of parameters: 730671360
+Running on 16 GPUs total
+=> loaded model weights and optimizer state at checkpoint '/scratch/eo41/vqgan-gpt/gpt_pretrained_models/say_gimel.pt'
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+Iteration: 0 | Training loss: 5.033977508544922
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_0_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 10000 | Training loss: 5.000367347049713
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_10000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 20000 | Training loss: 4.979147749662399
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_20000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 30000 | Training loss: 4.972516257357597
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_30000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 40000 | Training loss: 4.970100594377517
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_40000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 50000 | Training loss: 5.405501440525055
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_50000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 60000 | Training loss: 5.353503350329399
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_60000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 70000 | Training loss: 5.220138521456718
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_70000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 80000 | Training loss: 5.138026001763344
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_80000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 90000 | Training loss: 4.997180798411369
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_90000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 100000 | Training loss: 4.972350775599479
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_100000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 110000 | Training loss: 4.9657788955450055
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_110000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 120000 | Training loss: 4.953705482721329
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_120000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 130000 | Training loss: 4.9448775294542315
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_130000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 140000 | Training loss: 4.944383617019653
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_140000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 150000 | Training loss: 4.944210085701942
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_150000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 160000 | Training loss: 4.938878140282631
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_160000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 170000 | Training loss: 4.931895919656753
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_170000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 180000 | Training loss: 4.933802534270287
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_180000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+slurmstepd: error: *** JOB 27300133 ON ga001 CANCELLED AT 2022-11-26T10:02:03 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 27300133.0 ON ga001 CANCELLED AT 2022-11-26T10:02:03 DUE TO TIME LIMIT ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

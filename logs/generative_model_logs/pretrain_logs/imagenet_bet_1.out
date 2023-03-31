@@ -1,0 +1,137 @@
+Namespace(data_path='/scratch/work/public/imagenet/train', vqconfig_path='/scratch/eo41/visual-recognition-memory/vqgan_pretrained_models/imagenet_16x16_16384.yaml', vqmodel_path='/scratch/eo41/visual-recognition-memory/vqgan_pretrained_models/imagenet_16x16_16384.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/visual-recognition-memory/gpt_pretrained_models', gpt_config='GPT_bet', vocab_size=16384, block_size=255, batch_size=64, lr=0.0003, optimizer='Adam', epochs=1000, resume='/scratch/eo41/visual-recognition-memory/gpt_pretrained_models/imagenet_bet.pt', save_prefix='imagenet', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/work/public/imagenet/train', vqconfig_path='/scratch/eo41/visual-recognition-memory/vqgan_pretrained_models/imagenet_16x16_16384.yaml', vqmodel_path='/scratch/eo41/visual-recognition-memory/vqgan_pretrained_models/imagenet_16x16_16384.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/visual-recognition-memory/gpt_pretrained_models', gpt_config='GPT_bet', vocab_size=16384, block_size=255, batch_size=64, lr=0.0003, optimizer='Adam', epochs=1000, resume='/scratch/eo41/visual-recognition-memory/gpt_pretrained_models/imagenet_bet.pt', save_prefix='imagenet', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/work/public/imagenet/train', vqconfig_path='/scratch/eo41/visual-recognition-memory/vqgan_pretrained_models/imagenet_16x16_16384.yaml', vqmodel_path='/scratch/eo41/visual-recognition-memory/vqgan_pretrained_models/imagenet_16x16_16384.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/visual-recognition-memory/gpt_pretrained_models', gpt_config='GPT_bet', vocab_size=16384, block_size=255, batch_size=64, lr=0.0003, optimizer='Adam', epochs=1000, resume='/scratch/eo41/visual-recognition-memory/gpt_pretrained_models/imagenet_bet.pt', save_prefix='imagenet', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/work/public/imagenet/train', vqconfig_path='/scratch/eo41/visual-recognition-memory/vqgan_pretrained_models/imagenet_16x16_16384.yaml', vqmodel_path='/scratch/eo41/visual-recognition-memory/vqgan_pretrained_models/imagenet_16x16_16384.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/visual-recognition-memory/gpt_pretrained_models', gpt_config='GPT_bet', vocab_size=16384, block_size=255, batch_size=64, lr=0.0003, optimizer='Adam', epochs=1000, resume='/scratch/eo41/visual-recognition-memory/gpt_pretrained_models/imagenet_bet.pt', save_prefix='imagenet', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+model:
+  base_learning_rate: 4.5e-06
+  params:
+    ddconfig:
+      attn_resolutions:
+      - 16
+      ch: 128
+      ch_mult:
+      - 1
+      - 1
+      - 2
+      - 2
+      - 4
+      double_z: false
+      dropout: 0.0
+      in_channels: 3
+      num_res_blocks: 2
+      out_ch: 3
+      resolution: 256
+      z_channels: 256
+    embed_dim: 256
+    lossconfig:
+      params:
+        codebook_weight: 1.0
+        disc_conditional: false
+        disc_in_channels: 3
+        disc_num_layers: 2
+        disc_start: 0
+        disc_weight: 0.75
+      target: vqloss.VQLPIPSWithDiscriminator
+    monitor: val/rec_loss
+    n_embed: 16384
+  target: vqmodel.VQModel
+
+Working with z of shape (1, 256, 16, 16) = 65536 dimensions.
+loaded pretrained LPIPS loss from taming/modules/autoencoder/lpips/vgg.pth
+VQLPIPSWithDiscriminator running with hinge loss.
+Loaded VQ encoder.
+Data loaded: dataset contains 1281167 images, and takes 5005 training iterations per epoch.
+Number of parameters: 336126976
+Running on 4 GPUs total
+=> loaded model weights and optimizer state at checkpoint '/scratch/eo41/visual-recognition-memory/gpt_pretrained_models/imagenet_bet.pt'
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+Epoch: 0 | Training loss: 5.462450480580211 | Elapsed time: 4212.490542650223
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_000_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 1 | Training loss: 5.459824828739528 | Elapsed time: 4210.629241704941
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_001_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 2 | Training loss: 5.460091401385022 | Elapsed time: 4210.093405008316
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_002_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 3 | Training loss: 5.456877846770234 | Elapsed time: 4209.620198249817
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_003_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 4 | Training loss: 5.457421847942706 | Elapsed time: 4210.129886627197
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_004_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 5 | Training loss: 5.452875267947232 | Elapsed time: 4211.293568372726
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_005_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 6 | Training loss: 5.453069615816617 | Elapsed time: 4209.6937000751495
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_006_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 7 | Training loss: 5.4497216934448 | Elapsed time: 4209.908575057983
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_007_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 8 | Training loss: 5.449413906634747 | Elapsed time: 4210.370651245117
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_008_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 9 | Training loss: 5.446556557189454 | Elapsed time: 4208.084479093552
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_009_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 10 | Training loss: 5.4468175063957345 | Elapsed time: 4210.39133143425
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_010_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 11 | Training loss: 5.442614160455785 | Elapsed time: 4208.621545553207
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_011_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 12 | Training loss: 5.441316787536804 | Elapsed time: 4209.932279348373
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_012_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 13 | Training loss: 5.4395277352957105 | Elapsed time: 4209.686124324799
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_013_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 14 | Training loss: 5.440548940519472 | Elapsed time: 4213.4403860569
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_014_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 15 | Training loss: 5.43819805654017 | Elapsed time: 4208.388911247253
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_015_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 16 | Training loss: 5.434972073005272 | Elapsed time: 4208.486869335175
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_016_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 17 | Training loss: 5.435351838027085 | Elapsed time: 4208.599833726883
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_017_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 18 | Training loss: 5.433853230109581 | Elapsed time: 4208.173202514648
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_018_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 19 | Training loss: 5.434288627498752 | Elapsed time: 4208.1564836502075
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_019_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 20 | Training loss: 5.43105089776404 | Elapsed time: 4208.968448400497
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_020_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 21 | Training loss: 5.4307719106798045 | Elapsed time: 4208.604787111282
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_021_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 22 | Training loss: 5.429320645499063 | Elapsed time: 4211.22211098671
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_022_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 23 | Training loss: 5.4284210943437365 | Elapsed time: 4211.260216712952
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_023_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 24 | Training loss: 5.424778309783021 | Elapsed time: 4210.164441823959
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_024_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 25 | Training loss: 5.424842639831635 | Elapsed time: 4210.703585147858
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_025_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 26 | Training loss: 5.422915841482736 | Elapsed time: 4210.591207265854
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_026_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 27 | Training loss: 5.423080742347253 | Elapsed time: 4209.935755491257
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_027_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 28 | Training loss: 5.421325563836645 | Elapsed time: 4211.150771856308
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_028_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 29 | Training loss: 5.42019076104407 | Elapsed time: 4210.838050365448
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_029_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 30 | Training loss: 5.420276668140819 | Elapsed time: 4209.014040470123
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_030_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 31 | Training loss: 5.417722504717725 | Elapsed time: 4209.161095619202
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_031_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 32 | Training loss: 5.4170814586567 | Elapsed time: 4208.864420175552
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_032_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 33 | Training loss: 5.417063832640291 | Elapsed time: 4208.859807729721
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_033_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 34 | Training loss: 5.416183816564905 | Elapsed time: 4210.375951290131
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_034_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 35 | Training loss: 5.414503083910261 | Elapsed time: 4210.523791074753
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_035_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 36 | Training loss: 5.412380295199948 | Elapsed time: 4209.003999710083
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_036_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 37 | Training loss: 5.412666624528426 | Elapsed time: 4210.427684307098
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_037_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 38 | Training loss: 5.412035094631778 | Elapsed time: 4210.188027858734
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_038_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+Epoch: 39 | Training loss: 5.410666262162673 | Elapsed time: 4210.234239578247
+Saving model to: /scratch/eo41/visual-recognition-memory/gpt_pretrained_models/model_039_imagenet_GPT_bet_256b_0.0003lr_Adamo_0s.pt
+slurmstepd: error: *** JOB 26026405 ON ga005 CANCELLED AT 2022-10-22T09:00:43 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 26026405.0 ON ga005 CANCELLED AT 2022-10-22T09:00:43 DUE TO TIME LIMIT ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.

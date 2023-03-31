@@ -1,0 +1,166 @@
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=5000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=5000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=5000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=5000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=5000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=5000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=5000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=5000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=5000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=5000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=5000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=5000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=5000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=5000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=5000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+Namespace(data_path='/scratch/eo41/data/saycam/SAY_5fps_300s_{000000..000009}.tar', vqconfig_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.yaml', vqmodel_path='/scratch/eo41/vqgan-gpt/vqgan_pretrained_models/say_32x32_8192.ckpt', num_workers=8, seed=0, save_dir='/scratch/eo41/vqgan-gpt/gpt_pretrained_models', gpt_config='GPT_gimel', vocab_size=8192, block_size=1023, batch_size=6, print_freq=5000, lr=0.0003, optimizer='Adam', resume='', gpu=None, world_size=-1, rank=-1, dist_url='env://', dist_backend='nccl', local_rank=-1)
+model:
+  base_learning_rate: 1.0e-05
+  params:
+    ddconfig:
+      attn_resolutions:
+      - 32
+      ch: 128
+      ch_mult:
+      - 1
+      - 1
+      - 2
+      - 4
+      double_z: false
+      dropout: 0.0
+      in_channels: 3
+      num_res_blocks: 2
+      out_ch: 3
+      resolution: 256
+      z_channels: 256
+    embed_dim: 256
+    lossconfig:
+      params:
+        codebook_weight: 1.0
+        disc_conditional: false
+        disc_in_channels: 3
+        disc_start: 100001
+        disc_weight: 0.2
+      target: vqloss.VQLPIPSWithDiscriminator
+    n_embed: 8192
+  target: vqmodel.VQModel
+
+Working with z of shape (1, 256, 32, 32) = 262144 dimensions.
+loaded pretrained LPIPS loss from taming/modules/autoencoder/lpips/vgg.pth
+VQLPIPSWithDiscriminator running with hinge loss.
+Number of parameters: 730671360
+Running on 16 GPUs total
+=> no checkpoint loaded, will train from scratch
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+/scratch/eo41/miniconda3/lib/python3.9/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+Iteration: 0 | Training loss: 9.269855499267578
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_0_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 5000 | Training loss: 6.228412897777558
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_5000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 10000 | Training loss: 5.677635769701004
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_10000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 15000 | Training loss: 5.588409051990509
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_15000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 20000 | Training loss: 5.531276674461365
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_20000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 25000 | Training loss: 5.4793645988941195
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_25000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 30000 | Training loss: 5.441831717920303
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_30000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 35000 | Training loss: 5.411573132991791
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_35000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 40000 | Training loss: 5.390492297029495
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_40000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 45000 | Training loss: 5.360090880012512
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_45000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 50000 | Training loss: 5.344044271087647
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_50000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 55000 | Training loss: 5.335392073106766
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_55000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 60000 | Training loss: 5.314779483127594
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_60000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 65000 | Training loss: 5.292163775300979
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_65000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 70000 | Training loss: 5.281603284406662
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_70000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 75000 | Training loss: 5.264535038089752
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_75000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 80000 | Training loss: 5.256706160640716
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_80000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 85000 | Training loss: 5.249376992893219
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_85000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 90000 | Training loss: 5.237781165266037
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_90000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 95000 | Training loss: 5.229439442396164
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_95000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 100000 | Training loss: 5.222921891212463
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_100000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 105000 | Training loss: 5.214226239681244
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_105000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 110000 | Training loss: 5.207693300676346
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_110000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 115000 | Training loss: 5.194360571146011
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_115000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 120000 | Training loss: 5.1919717218875885
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_120000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 125000 | Training loss: 5.191810512542725
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_125000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 130000 | Training loss: 5.170573520088196
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_130000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 135000 | Training loss: 5.571219595909119
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_135000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 140000 | Training loss: 5.75581296043396
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_140000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 145000 | Training loss: 5.1849900501728055
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_145000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 150000 | Training loss: 5.168959885025024
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_150000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 155000 | Training loss: 5.159844536018372
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_155000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 160000 | Training loss: 5.3883808923721315
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_160000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 165000 | Training loss: 5.556298746442795
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_165000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 170000 | Training loss: 5.1485559203624724
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_170000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 175000 | Training loss: 5.140151729488373
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_175000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 180000 | Training loss: 5.137233607387543
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_180000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 185000 | Training loss: 5.1244073034763336
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_185000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+Iteration: 190000 | Training loss: 5.122972550725937
+Saving model to: /scratch/eo41/vqgan-gpt/gpt_pretrained_models/model_190000_36l_20h_1280e_96b_0.0003lr_Adamo_0s.pt
+slurmstepd: error: *** JOB 24732571 ON ga002 CANCELLED AT 2022-09-13T09:42:28 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 24732571.0 ON ga002 CANCELLED AT 2022-09-13T09:42:28 DUE TO TIME LIMIT ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
