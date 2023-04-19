@@ -5,10 +5,10 @@
 This is a stand-alone repository to facilitate the use of all models I have trained on SAYCam (and more!). The models are all hosted on [Huggingface](https://huggingface.co/eminorhan), which, to my not inconsiderable astonishment, seems to offer free unlimited storage for models and datasets (thanks Huggingface!).
 
 ## What you need:
-* A reasonably recent version of PyTorch and torchvision (I have `pytorch==1.13.1` and `torchvision==0.14.1`).
-* The `huggingface_hub` library to download the models from the Huggingface Hub (I have `huggingface-hub==0.12.0`).
-* For the attention visualizations, you will need the PIL library (I have `pillow==9.3.0`).
-* For the generative models (VQGAN-GPT models), you will need the PyTorch Lightning library (I have `pytorch-lightning==1.9.0`). This is a dependency of the [Taming Transformers](https://github.com/CompVis/taming-transformers) library (ugh).
+* A reasonably recent version of PyTorch and torchvision (I have `pytorch==1.11.0` and `torchvision==0.12.0`).
+* The `huggingface_hub` library to download the models from the Huggingface Hub (I have `huggingface-hub==0.13.4`).
+* For the attention visualizations, you will need the PIL library (I have `pillow==9.4.0`).
+* For the generative models (VQGAN-GPT models), you will need the PyTorch Lightning library (I have `pytorch-lightning==2.0.1`). This is a dependency of the [Taming Transformers](https://github.com/CompVis/taming-transformers) library (ugh).
 * You **do not** need a GPU to load and use these models (although, of course, things will run faster on a GPU). 
 * If you're only doing inference and you're not feeding the model very large batches of input, you should be able to easily fit even the largest models here on a single V100 GPU with 32GB memory.
 
