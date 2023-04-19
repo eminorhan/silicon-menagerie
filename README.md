@@ -2,7 +2,7 @@
 
 > *... come ye, assemble all the beasts of the field ...* &ndash; Jeremiah 12:9
 
-This is a stand-alone repository to facilitate the use of all models I have trained on SAYCam (and more!). It is still in progress. More models and further functionalities will be forthcoming shortly. The models are all hosted on [Huggingface](https://huggingface.co/eminorhan), which, to my not inconsiderable astonishment, seems to offer free unlimited storage for models and datasets (thanks Huggingface!).
+This is a stand-alone repository to facilitate the use of all models I have trained on SAYCam (and more!). The models are all hosted on [Huggingface](https://huggingface.co/eminorhan), which, to my not inconsiderable astonishment, seems to offer free unlimited storage for models and datasets (thanks Huggingface!).
 
 ## What you need:
 * A reasonably recent version of PyTorch and torchvision (I have `pytorch==1.13.1` and `torchvision==0.14.1`).
@@ -21,7 +21,7 @@ Model names are specified in the format `x_y_z`, where `x` is the self-supervise
 * `y` can be one of `say`, `s`, `a`, `y`, `imagenet100`, `imagenet10`, `imagenet1`, `kinetics-200h`, `ego4d-200h`
 * `z` can be one of `resnext50`, `vitb14`, `vitl16`, `vitb16`, `vits16` 
 
-Here, `imagenet100`, `imagenet10`, `imagenet1` are the full ImageNet training set and its subsets (10% and 1% of the full training set, respectively); `kinetics-200h` and `ego4d-200h` are 200-hour subsets of the Kinetics-700 and Ego4D video datasets. DINO models were trained with code from [this repository](https://github.com/eminorhan/dino), Mugs models were trained with code from [this repository](https://github.com/eminorhan/mugs), and the MAE models were trained with code from [this repository](https://github.com/eminorhan/mae). Training logs for all models can be found in the [`logs`](https://github.com/eminorhan/silicon-menagerie/tree/master/logs) folder. Please note that not all possible combinations are available at this time; you can see a list of all available models by running:
+Here, `say`, `s`, `a`, `y` represent the full SAYCam dataset and the individual babies S, A, and Y, respectively; `imagenet100`, `imagenet10`, `imagenet1` are the full ImageNet training set and its subsets (10% and 1% of the full training set, respectively); `kinetics-200h` and `ego4d-200h` are 200-hour subsets of the Kinetics-700 and Ego4D video datasets. DINO models were trained with code from [this repository](https://github.com/eminorhan/dino), Mugs models were trained with code from [this repository](https://github.com/eminorhan/mugs), and the MAE models were trained with code from [this repository](https://github.com/eminorhan/mae). Training logs for all models can be found in the [`logs`](https://github.com/eminorhan/silicon-menagerie/tree/master/logs) folder. Please note that not all possible combinations are available at this time; you can see a list of all available models by running:
 
 ```python
 >>> print(utils.get_available_models())
