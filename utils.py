@@ -172,7 +172,7 @@ def preprocess_image(image_path, image_size):
 
     return img
 
-def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.device("cpu"), threshold=None):
+def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.device("cpu"), threshold=None, separate_heads=True):
     from torch.nn.functional import interpolate
     from torchvision.utils import save_image
     import random, colorsys
@@ -229,20 +229,23 @@ def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.
 
     print('Attentions min, max:', bw_attentions.min(), bw_attentions.max())
 
-    # combined (summed) bw map
-    bw_combined_map = torch.sum(bw_attentions, 0, keepdim=True)
+    if separate_heads:
+        save_image(bw_attentions, 'all_heads_' + save_name, nrow=10, padding=0, normalize=True, scale_each=True)
+    else:
+        # combined (summed) bw map
+        bw_combined_map = torch.sum(bw_attentions, 0, keepdim=True)
 
-    # combined cl map (colored by maximally active head at each pixel)
-    cl_combined_map = torch.zeros(1, 3, w, h)
-    for i in range(w):
-        for j in range(h):
-            max_ind  = torch.argmax(attentions[:, i, j])
-            cl_combined_map[0, 0, i, j] = (0.5*colors[max_ind][0] + 0.5) * bw_attentions[max_ind, 0, i, j]
-            cl_combined_map[0, 1, i, j] = (0.5*colors[max_ind][1] + 0.5) * bw_attentions[max_ind, 1, i, j]
-            cl_combined_map[0, 2, i, j] = (0.5*colors[max_ind][2] + 0.5) * bw_attentions[max_ind, 2, i, j]
+        # combined cl map (colored by maximally active head at each pixel)
+        cl_combined_map = torch.zeros(1, 3, w, h)
+        for i in range(w):
+            for j in range(h):
+                max_ind  = torch.argmax(attentions[:, i, j])
+                cl_combined_map[0, 0, i, j] = (0.5*colors[max_ind][0] + 0.5) * bw_attentions[max_ind, 0, i, j]
+                cl_combined_map[0, 1, i, j] = (0.5*colors[max_ind][1] + 0.5) * bw_attentions[max_ind, 1, i, j]
+                cl_combined_map[0, 2, i, j] = (0.5*colors[max_ind][2] + 0.5) * bw_attentions[max_ind, 2, i, j]
 
-    # save combined bw attention map 
-    save_image(bw_combined_map, 'composite_bw_' + save_name, nrow=1, padding=0, normalize=True, scale_each=True)
+        # save combined bw attention map 
+        save_image(bw_combined_map, 'composite_bw_' + save_name, nrow=1, padding=0, normalize=True, scale_each=True)
 
-    # save combined cl attention map 
-    save_image(cl_combined_map, 'composite_cl_' + save_name, nrow=1, padding=0, normalize=True, scale_each=True)
+        # save combined cl attention map 
+        save_image(cl_combined_map, 'composite_cl_' + save_name, nrow=1, padding=0, normalize=True, scale_each=True)
