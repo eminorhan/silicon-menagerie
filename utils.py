@@ -230,7 +230,7 @@ def visualize_attentions(model, img, patch_size, save_name="atts", device=torch.
     print('Attentions min, max:', bw_attentions.min(), bw_attentions.max())
 
     if separate_heads:
-        save_image(bw_attentions, 'all_heads_' + save_name, nrow=10, padding=0, normalize=True, scale_each=True)
+        save_image(bw_attentions[:7], 'all_heads_' + save_name, nrow=7, padding=0, normalize=True, scale_each=False)
     else:
         # combined (summed) bw map
         bw_combined_map = torch.sum(bw_attentions, 0, keepdim=True)
