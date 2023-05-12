@@ -240,7 +240,7 @@ class GPT(nn.Module):
             start_pixel = start_pixel.cuda()
 
         print('Started unconditional sampling.')    
-        pixels = self.sample(start_pixel, self.get_block_size(), temperature=0.99, sample=True, top_k=128)
+        pixels = self.sample(start_pixel, self.get_block_size(), temperature=1.0, sample=True, top_k=128)
 
         return pixels
 
@@ -252,7 +252,7 @@ class GPT(nn.Module):
         all_pixels.append(x)  # append the original images first
         for i in range(n_samples-1):
             print('Sample {} of {}'.format(i, n_samples-1))
-            pixels = self.sample(x[:, :ctx_len], ctx_len, temperature=0.99, sample=True, top_k=128)
+            pixels = self.sample(x[:, :ctx_len], ctx_len, temperature=1.0, sample=True, top_k=128)
             all_pixels.append(pixels)
 
         return torch.cat(all_pixels)

@@ -115,7 +115,7 @@ def generate_images_from_half(gpt_model, vq_model, img_dir, n_imgs=1, n_samples_
     vq_model.eval()
 
     # data preprocessing
-    transform = Compose([Resize(288), CenterCrop(256), ToTensor()])
+    transform = Compose([Resize(256), CenterCrop(256), ToTensor()])
     dataset = ImageFolder(img_dir, transform=transform)
     loader = DataLoader(dataset, batch_size=n_imgs, shuffle=True, num_workers=4, pin_memory=True)
 

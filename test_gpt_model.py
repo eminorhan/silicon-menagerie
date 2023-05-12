@@ -23,8 +23,10 @@ if args.mode == 'free':
     save_image(x, "free_samples_from_{}.png".format(args.model_name), nrow=int(math.sqrt(n_samples)), padding=1, normalize=True)
 elif args.mode == 'conditional':
     # generate conditional samples
-    n_imgs = 10            # number of images to condition on
+    n_imgs = 12            # number of images to condition on
     n_samples_per_img = 2  # number of conditional samples per image
     x = generate_images_from_half(gpt_model, vq_model, args.img_dir, n_imgs=n_imgs, n_samples_per_img=n_samples_per_img, seed=args.seed)
-    # save generated images
-    save_image(x, "conditional_samples_from_{}_{}.png".format(args.model_name, args.seed), nrow=n_imgs, padding=0, normalize=True)
+    # save original + generated images (separately, but feel free to change this)
+    print(x.shape)
+    save_image(x[:n_imgs,...], "original_imgs_from_{}_{}.png".format(args.model_name, args.seed), nrow=n_imgs, padding=1, normalize=True)
+    save_image(x[n_imgs:,...], "conditional_samples_from_{}_{}.png".format(args.model_name, args.seed), nrow=n_imgs, padding=1, normalize=True)
