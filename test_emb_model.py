@@ -2,7 +2,7 @@ import torch
 from utils import load_model
 
 # load model
-model_name = 'dino_imagenet10_vitb14'
+model_name = 'dino_y_vitb14'
 model = load_model(model_name)
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 model.to(device)
