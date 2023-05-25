@@ -1,6 +1,8 @@
 # A menagerie of models trained on SAYCam and other reference datasets
 
-This is a stand-alone repository to facilitate the use of all models I have trained on SAYCam (and more!). The models are all hosted on [Huggingface](https://huggingface.co/eminorhan).
+This is a stand-alone repository to facilitate the use of all models I have trained on SAYCam (and more!). The models are all hosted on [Huggingface](https://huggingface.co/eminorhan). Please see our preprint for a detailed description of the models and their capabilities:
+
+Orhan AE, Lake BM (2023) [What can generic neural networks learn from a child's visual experience?](https://arxiv.org/abs/2305.15372) arXiv:2305.15372.
 
 ## What you need:
 * A reasonably recent version of PyTorch and torchvision (I have `pytorch==1.11.0` and `torchvision==0.12.0`).
@@ -35,7 +37,7 @@ from utils import load_model
 model = load_model('dino_say_vitb14')
 ```
 
-This will download the corresponding pretrained checkpoint, store it in cache, build the right model architecture, and load the pretrained weights onto the model, all in one go! When you load a model, you will get a warning message that says something like `_IncompatibleKeys(missing_keys=[], unexpected_keys=...)`. This is because we're not loading the projection head used during DINO or Mugs pretraining, or the decoder model used during MAE pretraining. We're only interested in the encoder backbone.
+This will download the corresponding pretrained checkpoint, store it in cache, build the right model architecture, and load the pretrained weights onto the model, all in one go! When you load a model, you will get a warning message that says something like `_IncompatibleKeys(missing_keys=[], unexpected_keys=...)`. This is normal. This happens because we're not loading the projection head used during DINO or Mugs pretraining, or the decoder model used during MAE pretraining. We're only interested in the encoder backbone.
 
 ### Attaching a linear classifier head
 Please see the example code [here](https://github.com/eminorhan/dino/blob/master/eval_linear.py) to find out how to attach a linear classifier head to a pretrained model (either a resnext or a ViT model), and train or finetune it on a downstream classification task.
