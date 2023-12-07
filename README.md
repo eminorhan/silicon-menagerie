@@ -2,7 +2,7 @@
 
 This is a stand-alone repository to facilitate the use of all models I have trained on SAYCam (and more!). The models are all hosted on [Huggingface](https://huggingface.co/eminorhan). Please see our preprint for a detailed description of the models and their capabilities:
 
-Orhan AE, Lake BM (2023) [What can generic neural networks learn from a child's visual experience?](https://arxiv.org/abs/2305.15372) arXiv:2305.15372.
+Orhan AE, Lake BM (2023) [Learning high-level visual representations from a child's perspective without strong inductive biases](https://arxiv.org/abs/2305.15372) arXiv:2305.15372.
 
 ## What you need:
 * A reasonably recent version of PyTorch and torchvision (I have `pytorch==1.11.0` and `torchvision==0.12.0`).
