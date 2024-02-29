@@ -1,6 +1,6 @@
 # A menagerie of models trained on SAYCam and other reference datasets
 
-This is a stand-alone repository to facilitate the use of all models I have trained on SAYCam (and more!). The models are all hosted on [Huggingface](https://huggingface.co/eminorhan). Please see our preprint for a detailed description of the models and their capabilities:
+This is a stand-alone repository to facilitate the use of all models I have trained on SAYCam (and more!). The models are all hosted on [Hugging Face](https://huggingface.co/eminorhan). Please see our preprint for a detailed description of the models and their capabilities:
 
 Orhan AE, Lake BM (2023) [Learning high-level visual representations from a child's perspective without strong inductive biases.](https://arxiv.org/abs/2305.15372) arXiv:2305.15372.
 
@@ -37,7 +37,7 @@ from utils import load_model
 model = load_model('dino_say_vitb14')
 ```
 
-This will download the corresponding pretrained checkpoint, store it in cache, build the right model architecture, and load the pretrained weights onto the model, all in one go! When you load a model, you will get a warning message that says something like `_IncompatibleKeys(missing_keys=[], unexpected_keys=...)`. This is normal. This happens because we're not loading the projection head used during DINO or Mugs pretraining, or the decoder model used during MAE pretraining. We're only interested in the encoder backbone.
+This will download the corresponding pretrained checkpoint (*i.e.* a ViT-B/14 model trained with DINO on the full SAYCam dataset), store it in cache, build the right model architecture, and load the pretrained weights onto the model, all in one go! When you load a model, you will get a warning message that says something like `_IncompatibleKeys(missing_keys=[], unexpected_keys=...)`. This is normal. This happens because we're not loading the projection head used during DINO or Mugs pretraining, or the decoder model used during MAE pretraining. We're only interested in the encoder backbone.
 
 ### Training and evaluation
 Models were trained and evaluated using separate repositories. DINO models were trained and evaluated with code from [this repository](https://github.com/eminorhan/dino), Mugs models were trained and evaluated with code from [this repository](https://github.com/eminorhan/mugs), and the MAE models were trained and evaluated with code from [this repository](https://github.com/eminorhan/mae). Training logs for all models can be found inside the [`logs`](https://github.com/eminorhan/silicon-menagerie/tree/master/logs) folder here.
